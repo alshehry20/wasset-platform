@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نشر إعلان عقاري - منصة وسّط</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .publish-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .publish-title {
+            color: #1a5276;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .publish-subtitle {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .broker-identity {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .broker-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .broker-info {
+            flex: 1;
+        }
+        
+        .broker-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .broker-license {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .broker-location {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .digital-id {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 1px dashed #3498db;
+        }
+        
+        .digital-id-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .digital-id-code {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: #1a5276;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        
+        .digital-id-note {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .share-options {
+            margin-bottom: 30px;
+        }
+        
+        .share-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .share-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .share-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+        }
+        
+        .share-link:hover {
+            opacity: 0.9;
+        }
+        
+        .whatsapp-share {
+            background-color: #25D366;
+        }
+        
+        .twitter-share {
+            background-color: #1DA1F2;
+        }
+        
+        .facebook-share {
+            background-color: #4267B2;
+        }
+        
+        .telegram-share {
+            background-color: #0088cc;
+        }
+        
+        .copy-link {
+            background-color: #7f8c8d;
+        }
+        
+        .share-url {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .share-url-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+        
+        .share-url-button {
+            padding: 12px 20px;
+            background-color: #1a5276;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .share-url-button:hover {
+            background-color: #154360;
+        }
+        
+        .qr-code {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .qr-code-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .qr-code-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .qr-code-note {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+        
+        .publish-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .publish-button {
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .primary-button {
+            background-color: #1a5276;
+        }
+        
+        .primary-button:hover {
+            background-color: #154360;
+        }
+        
+        .secondary-button {
+            background-color: #e67e22;
+        }
+        
+        .secondary-button:hover {
+            background-color: #d35400;
+        }
+        
+        .cancel-button {
+            background-color: #7f8c8d;
+        }
+        
+        .cancel-button:hover {
+            background-color: #95a5a6;
+        }
+        
+        @media (max-width: 768px) {
+            .broker-identity {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .share-links {
+                justify-content: center;
+            }
+            
+            .publish-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">🏢 وسّط</a>
+        </div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="ai-assistant.html">المساعد الذكي</a>
+            <a href="articles.html">المقالات</a>
+            <a href="vision.html">رؤية المملكة</a>
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
+        <div class="user-menu">
+            <span class="user-name">وسيط عقاري</span>
+            <div class="dropdown-content">
+                <a href="profile.html">الملف الشخصي</a>
+                <a href="login.html">تسجيل الخروج</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="publish-container">
+        <h1 class="publish-title">نشر إعلان عقاري</h1>
+        <p class="publish-subtitle">مشاركة الإعلان العقاري مع هوية الوسيط الرقمية</p>
+        
+        <div class="broker-identity">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="الوسيط العقاري" class="broker-image">
+            
+            <div class="broker-info">
+                <h3 class="broker-name">أحمد محمد العتيبي</h3>
+                <p class="broker-license">وسيط عقاري مرخص - رقم الترخيص: 1234567</p>
+                <p class="broker-location">الرياض، المملكة العربية السعودية</p>
+                
+                <div class="digital-id">
+                    <div class="digital-id-title">
+                        <span>🔐</span>
+                        هوية الوسيط الرقمية
+                    </div>
+                    <div class="digital-id-code">WASSET-BR-1234567-2025</div>
+                    <p class="digital-id-note">هذا الرمز يؤكد هوية الوسيط العقاري المرخص ويضمن مصداقية الإعلان</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="share-options">
+            <h2 class="share-title">مشاركة الإعلان</h2>
+            
+            <div class="share-links">
+                <a href="https://wa.me/?text=فيلا فاخرة في حي الياسمين - الرياض - 2,500,000 ريال سعودي - وسيط عقاري مرخص: أحمد محمد العتيبي (WASSET-BR-1234567-2025) - https://8000-i8rm79xsgq6fll521f1gv-f15d55f7.manusvm.computer/property_details.html" class="share-link whatsapp-share" target="_blank">
+                    <span>📱</span>
+                    واتساب
+                </a>
+                
+                <a href="https://twitter.com/intent/tweet?text=فيلا فاخرة في حي الياسمين - الرياض - 2,500,000 ريال سعودي - وسيط عقاري مرخص: أحمد محمد العتيبي (WASSET-BR-1234567-2025)&url=https://8000-i8rm79xsgq6fll521f1gv-f15d55f7.manusvm.computer/property_details.html" class="share-link twitter-share" target="_blank">
+                    <span>🐦</span>
+                    تويتر
+                </a>
+                
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://8000-i8rm79xsgq6fll521f1gv-f15d55f7.manusvm.computer/property_details.html" class="share-link facebook-share" target="_blank">
+                    <span>👍</span>
+                    فيسبوك
+                </a>
+                
+                <a href="https://t.me/share/url?url=https://8000-i8rm79xsgq6fll521f1gv-f15d55f7.manusvm.computer/property_details.html&text=فيلا فاخرة في حي الياسمين - الرياض - 2,500,000 ريال سعودي - وسيط عقاري مرخص: أحمد محمد العتيبي (WASSET-BR-1234567-2025)" class="share-link telegram-share" target="_blank">
+                    <span>✈️</span>
+                    تيليجرام
+                </a>
+                
+                <button class="share-link copy-link" onclick="copyShareLink()">
+                    <span>🔗</span>
+                    نسخ الرابط
+                </button>
+            </div>
+            
+            <div class="share-url">
+                <input type="text" class="share-url-input" id="shareUrlInput" value="https://8000-i8rm79xsgq6fll521f1gv-f15d55f7.manusvm.computer/property_details.html?broker=WASSET-BR-1234567-2025" readonly>
+                <button class="share-url-button" onclick="copyShareLink()">نسخ</button>
+            </div>
+        </div>
+        
+        <div class="qr-code">
+            <h2 class="qr-code-title">رمز QR للإعلان</h2>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://8000-i8rm79xsgq6fll521f1gv-f15d55f7.manusvm.computer/property_details.html?broker=WASSET-BR-1234567-2025" alt="رمز QR للإعلان" class="qr-code-image">
+            <p class="qr-code-note">يمكنك طباعة رمز QR واستخدامه في المطبوعات الإعلانية</p>
+        </div>
+        
+        <div class="publish-actions">
+            <a href="property_details.html" class="publish-button primary-button">
+                معاينة الإعلان
+            </a>
+            
+            <button class="publish-button secondary-button" onclick="alert('تم نشر الإعلان بنجاح!')">
+                نشر الإعلان
+            </button>
+            
+            <button class="publish-button cancel-button" onclick="window.location.href='index.html'">
+                إلغاء
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        // نسخ رابط المشاركة
+        function copyShareLink() {
+            const shareUrlInput = document.getElementById('shareUrlInput');
+            shareUrlInput.select();
+            document.execCommand('copy');
+            
+            alert('تم نسخ الرابط بنجاح!');
+        }
+    </script>
+</body>
+</html>

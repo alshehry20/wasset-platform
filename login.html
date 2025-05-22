@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#1e5f74">
+    <meta name="theme-color" content="#1e5f74">
+    <title>تسجيل الدخول - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap">
+    <link rel="stylesheet" href="responsive_fixes.css">
+    <style>
+        :root {
+            --primary-color: #1e5f74;
+            --secondary-color: #133b5c;
+            --accent-color: #ffa62b;
+            --light-color: #f7f9f9;
+            --dark-color: #1d2d50;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%);
+            --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .login-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .user-type-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .user-type-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .user-type-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: var(--transition);
+            direction: ltr;
+            text-align: right;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(30, 95, 116, 0.2);
+            outline: none;
+        }
+
+        .form-input.error {
+            border-color: var(--error-color);
+        }
+
+        .password-input-container {
+            position: relative;
+        }
+
+        .password-input-container .form-input {
+            padding-right: 40px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #999;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 25px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+        }
+
+        .forgot-password {
+            display: block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .forgot-password:hover {
+            color: var(--accent-color);
+        }
+
+        .register-link {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .register-link a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .register-link a:hover {
+            color: var(--primary-color);
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .success-message {
+            color: var(--success-color);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-message.visible {
+            display: block;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* تحسينات للأجهزة المحمولة */
+        @media (max-width: 768px) {
+            .login-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* تأثيرات حركية */
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* تحسينات للتحميل */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(30, 95, 116, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* تحسينات لحقل كلمة المرور */
+        .password-field {
+            display: flex;
+            direction: ltr;
+        }
+
+        .password-digit {
+            flex: 1;
+            height: 50px;
+            margin: 0 5px;
+            text-align: center;
+            font-size: 24px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .password-digit:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(30, 95, 116, 0.2);
+            outline: none;
+        }
+
+        /* نافذة منبثقة */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .modal-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-icon {
+            font-size: 50px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-button i {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="page-loading">
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">🏢 وسّط</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="login-card animate-fade-in">
+            <h1 class="login-title">تسجيل الدخول للوسطاء العقاريين</h1>
+            <p class="login-subtitle">منصة وسّط - المنصة السعودية للوسطاء العقاريين المرخصين</p>
+            
+            <div class="user-type-tabs">
+                <div class="user-type-tab active" data-type="individual">وسيط فرد</div>
+                <div class="user-type-tab" data-type="company">منشأة عقارية</div>
+            </div>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="phone" class="form-label">رقم الجوال</label>
+                    <div class="phone-input-container">
+                        <input type="tel" id="phone" class="form-input" placeholder="أدخل رقم الجوال" required>
+                    </div>
+                    <div class="error-message" id="phone-error">رقم الجوال غير صحيح</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">كلمة المرور</label>
+                    <div class="password-input-container">
+                        <input type="password" id="password" class="form-input" placeholder="أدخل كلمة المرور" required>
+                        <span class="password-toggle" id="password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    <div class="error-message" id="password-error">كلمة المرور غير صحيحة</div>
+                </div>
+                
+                <div class="error-message" id="login-error">رقم الجوال أو كلمة المرور غير صحيحة</div>
+                
+                <button type="submit" class="btn" id="login-button">تسجيل الدخول</button>
+                
+                <a href="#" class="forgot-password" id="forgot-password">نسيت كلمة المرور؟</a>
+                
+                <div class="register-link">
+                    ليس لديك حساب؟ <a href="#" id="register-link">سجل الآن</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="forgot-password-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="forgot-password-close">&times;</span>
+            <div class="modal-icon">
+                <i class="fas fa-key"></i>
+            </div>
+            <h2 class="modal-title">استعادة كلمة المرور</h2>
+            <p class="modal-text">لاستعادة كلمة المرور، يرجى التواصل مع الدعم عبر واتساب على الرقم التالي:</p>
+            <a href="https://wa.me/966534394757" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                تواصل مع الدعم
+            </a>
+        </div>
+    </div>
+
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="register-close">&times;</span>
+            <div class="modal-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h2 class="modal-title">تسجيل حساب جديد</h2>
+            <p class="modal-text">للتسجيل في منصة وسّط، يرجى التواصل مع فريق الدعم عبر واتساب على الرقم التالي:</p>
+            <a href="https://wa.me/966534394757" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                تواصل مع الدعم
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إزالة مؤشر التحميل
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+                document.body.classList.remove('page-loading');
+            }, 500);
+
+            // تبديل نوع المستخدم
+            const userTypeTabs = document.querySelectorAll('.user-type-tab');
+            let userType = 'individual'; // القيمة الافتراضية
+
+            userTypeTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    userTypeTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    userType = this.getAttribute('data-type');
+                    localStorage.setItem('wasset_user_type', userType);
+                });
+            });
+
+            // إظهار/إخفاء كلمة المرور
+            const passwordToggle = document.getElementById('password-toggle');
+            const passwordInput = document.getElementById('password');
+
+            passwordToggle.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                passwordToggle.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            });
+
+            // نافذة نسيت كلمة المرور
+            const forgotPasswordLink = document.getElementById('forgot-password');
+            const forgotPasswordModal = document.getElementById('forgot-password-modal');
+            const forgotPasswordClose = document.getElementById('forgot-password-close');
+
+            forgotPasswordLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                forgotPasswordModal.classList.add('active');
+            });
+
+            forgotPasswordClose.addEventListener('click', function() {
+                forgotPasswordModal.classList.remove('active');
+            });
+
+            // نافذة التسجيل
+            const registerLink = document.getElementById('register-link');
+            const registerModal = document.getElementById('register-modal');
+            const registerClose = document.getElementById('register-close');
+
+            registerLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerModal.classList.add('active');
+            });
+
+            registerClose.addEventListener('click', function() {
+                registerModal.classList.remove('active');
+            });
+
+            // إغلاق النوافذ المنبثقة عند النقر خارجها
+            window.addEventListener('click', function(e) {
+                if (e.target === forgotPasswordModal) {
+                    forgotPasswordModal.classList.remove('active');
+                }
+                if (e.target === registerModal) {
+                    registerModal.classList.remove('active');
+                }
+            });
+
+            // نموذج تسجيل الدخول
+            const loginForm = document.getElementById('login-form');
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phone-error');
+            const passwordError = document.getElementById('password-error');
+            const loginError = document.getElementById('login-error');
+            const loginButton = document.getElementById('login-button');
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // إعادة تعيين رسائل الخطأ
+                phoneError.classList.remove('visible');
+                passwordError.classList.remove('visible');
+                loginError.classList.remove('visible');
+                
+                // الحصول على القيم
+                const phone = phoneInput.value.trim();
+                const password = passwordInput.value.trim();
+                
+                // التحقق من صحة رقم الجوال
+                if (!isValidSaudiPhone(phone)) {
+                    phoneError.classList.add('visible');
+                    return;
+                }
+                
+                // التحقق من صحة كلمة المرور
+                if (password !== '123456') {
+                    passwordError.classList.add('visible');
+                    return;
+                }
+                
+                // تغيير نص الزر وتعطيله أثناء التحميل
+                loginButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تسجيل الدخول...';
+                loginButton.disabled = true;
+                
+                // محاكاة تأخير الشبكة
+                setTimeout(() => {
+                    // تخزين حالة تسجيل الدخول
+                    localStorage.setItem('wasset_logged_in', 'true');
+                    localStorage.setItem('wasset_phone', phone);
+                    
+                    // تخزين بيانات الوسيط (سيتم استبدالها ببيانات حقيقية من ملف Excel)
+                    const brokerData = {
+                        'اسم الوسيط': 'وسيط عقاري',
+                        'رقم الجوال': phone,
+                        'رقم رخصة فال': '12345678',
+                        'المنطقة': 'الرياض',
+                        'المدينة': 'الرياض',
+                        'نوع الوسيط': userType === 'individual' ? 'وسيط فرد' : 'منشأة عقارية'
+                    };
+                    
+                    localStorage.setItem('wasset_broker_data', JSON.stringify(brokerData));
+                    
+                    // الانتقال إلى الصفحة الرئيسية
+                    window.location.href = 'index.html';
+                }, 1500);
+            });
+
+            // التحقق من صحة رقم الجوال السعودي
+            function isValidSaudiPhone(phone) {
+                // إزالة الأصفار والرموز من البداية إذا وجدت
+                phone = phone.replace(/^(00966|\+966|0)/, '');
+                
+                // التحقق من أن الرقم يبدأ بـ 5 ويتكون من 9 أرقام
+                return /^5\d{8}$/.test(phone);
+            }
+        });
+    </script>
+</body>
+</html>
