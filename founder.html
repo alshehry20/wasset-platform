@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#1e5f74">
+    <meta name="theme-color" content="#1e5f74">
+    <title>عن المؤسس - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap">
+    <link rel="stylesheet" href="responsive_fixes.css">
+    <style>
+        :root {
+            --primary-color: #1e5f74;
+            --secondary-color: #133b5c;
+            --accent-color: #ffa62b;
+            --light-color: #f7f9f9;
+            --dark-color: #1d2d50;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%);
+            --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .user-info {
+            margin-left: 10px;
+        }
+
+        .user-name {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .user-role {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-content a i {
+            margin-left: 10px;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .founder-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .founder-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .founder-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .founder-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .founder-image {
+            text-align: center;
+        }
+
+        .founder-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .founder-bio {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .founder-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .founder-title {
+            font-size: 18px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .founder-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .founder-description p {
+            margin-bottom: 15px;
+        }
+
+        .founder-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .founder-quote {
+            background-color: #f5f7fa;
+            border-right: 4px solid var(--accent-color);
+            padding: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .founder-quote::before {
+            content: '"';
+            font-size: 60px;
+            color: var(--accent-color);
+            opacity: 0.3;
+            position: absolute;
+            margin-top: -20px;
+            margin-right: -15px;
+        }
+
+        .founder-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            background-color: #f5f7fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .founder-contact {
+            margin-top: auto;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-item i {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        .founder-vision {
+            padding: 40px;
+            background-color: #f5f7fa;
+            border-top: 1px solid #eee;
+        }
+
+        .vision-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .vision-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .vision-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .vision-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .vision-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+
+        .vision-item-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .vision-item-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .founder-articles {
+            padding: 40px;
+        }
+
+        .articles-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            height: 180px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 24px;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-date {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .article-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .article-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .article-link:hover {
+            color: var(--primary-color);
+        }
+
+        .article-link i {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        .cta-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-description {
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* تحسينات للأجهزة المحمولة */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .founder-content {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-image {
+                margin-bottom: 20px;
+            }
+
+            .founder-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* تحسينات للتحميل */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(30, 95, 116, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class="page-loading">
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">🏢 وسّط</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="ai-assistant.html">المساعد الذكي</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                    <li><a href="vision.html">رؤية المملكة</a></li>
+                    <li><a href="#">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-avatar" id="user-avatar">و</div>
+                <div class="user-info">
+                    <div class="user-name" id="user-name">وسيط عقاري</div>
+                    <div class="user-role" id="user-role">وسيط مرخص</div>
+                </div>
+                <div class="dropdown">
+                    <i class="fas fa-chevron-down" style="color: white; margin-right: 10px; cursor: pointer;"></i>
+                    <div class="dropdown-content">
+                        <a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a>
+                        <a href="#"><i class="fas fa-cog"></i> الإعدادات</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="founder-container">
+            <div class="founder-header">
+                <h1>عن المؤسس</h1>
+                <p>المؤسس الأول لمجتمعات الوسطاء العقاريين الاحترافية في المملكة</p>
+            </div>
+            
+            <div class="founder-content">
+                <div class="founder-image">
+                    <img src="founder.jpg" alt="علي الشهري - مؤسس منصة وسّط" id="founder-image">
+                </div>
+                
+                <div class="founder-bio">
+                    <h2 class="founder-name">علي الشهري</h2>
+                    <div class="founder-title">المؤسس الأول لمجتمعات الوسطاء العقاريين الاحترافية في المملكة</div>
+                    
+                    <div class="founder-description">
+                        <p>يعد علي الشهري من أبرز الشخصيات في مجال الوساطة العقارية في المملكة العربية السعودية، حيث يشغل منصب عضو اللجنة العقارية بالغرفة التجارية، ويعتبر رائداً في تطوير المنصات الرقمية العقارية وتفعيل دور الذكاء الاصطناعي في خدمة السوق العقاري.</p>
+                        
+                        <p>بفضل خبرته الواسعة في المجال العقاري وشغفه بالتكنولوجيا، أسس منصة "وسّط" لتكون منصة متخصصة للوسطاء العقاريين المرخصين في المملكة، تهدف إلى تنظيم سوق الوساطة العقارية وتعزيز الثقة بين جميع الأطراف المعنية.</p>
+                        
+                        <p>يؤمن علي الشهري بأهمية التحول الرقمي في قطاع العقارات، ويسعى من خلال منصة "وسّط" إلى توفير بيئة احترافية تجمع الوسطاء المرخصين وتسهل عمليات البيع والشراء والتأجير، مع الالتزام بأعلى معايير الشفافية والمهنية.</p>
+                    </div>
+                    
+                    <div class="founder-quote">
+                        "نسعى من خلال منصة وسّط إلى إحداث نقلة نوعية في سوق الوساطة العقارية بالمملكة، من خلال توظيف التكنولوجيا والذكاء الاصطناعي لخدمة الوسطاء المرخصين والمستثمرين والعملاء على حد سواء."
+                    </div>
+                    
+                    <div class="founder-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">10+</div>
+                            <div class="stat-label">سنوات من الخبرة</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">وسيط مرخص</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1000+</div>
+                            <div class="stat-label">صفقة عقارية</div>
+                        </div>
+                    </div>
+                    
+                    <div class="founder-contact">
+                        <h3 class="contact-title">للتواصل المباشر</h3>
+                        <ul class="contact-list">
+                            <li class="contact-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <a href="https://wa.me/966534394757" target="_blank">+966 53 439 4757</a>
+                            </li>
+                            <li class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@wasset.sa">info@wasset.sa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="founder-vision">
+                <h3 class="vision-title">رؤيتنا ومبادئنا</h3>
+                <div class="vision-content">
+                    <div class="vision-item">
+                        <div class="vision-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="vision-item-title">خدمة العملاء</h4>
+                        <p class="vision-item-description">نؤمن بأن تقديم خدمة عملاء استثنائية هو أساس نجاح أي وسيط عقاري. نسعى دائماً لتجاوز توقعات العملاء وبناء علاقات طويلة الأمد معهم.</p>
+                    </div>
+                    <div class="vision-item">
+                        <div class="vision-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="vision-item-title">التحفيز والوعي</h4>
+                        <p class="vision-item-description">نعمل على تحفيز الوسطاء العقاريين ورفع مستوى الوعي لديهم بأهمية التطوير المستمر والالتزام بأخلاقيات المهنة وأفضل الممارسات العالمية.</p>
+                    </div>
+                    <div class="vision-item">
+                        <div class="vision-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="vision-item-title">الإلهام</h4>
+                        <p class="vision-item-description">نسعى لإلهام جيل جديد من الوسطاء العقاريين المحترفين الذين يمتلكون المعرفة والمهارات اللازمة للنجاح في سوق العقارات المتغير.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="founder-articles">
+                <h3 class="articles-title">مقالات ورؤى</h3>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="article-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-date">15 مايو 2025</div>
+                            <h4 class="article-title">مستقبل الوساطة العقارية في ظل التحول الرقمي</h4>
+                            <p class="article-excerpt">كيف يمكن للوسطاء العقاريين الاستفادة من التكنولوجيا الحديثة والذكاء الاصطناعي لتطوير أعمالهم وتقديم خدمات أفضل للعملاء.</p>
+                            <a href="articles.html" class="article-link">
+                                قراءة المزيد <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-image">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-date">10 مايو 2025</div>
+                            <h4 class="article-title">أهمية الترخيص في مهنة الوساطة العقارية</h4>
+                            <p class="article-excerpt">لماذا يعتبر الحصول على ترخيص "فال" أمراً ضرورياً لممارسة مهنة الوساطة العقارية، وكيف يساهم في تنظيم السوق وحماية حقوق جميع الأطراف.</p>
+                            <a href="articles.html" class="article-link">
+                                قراءة المزيد <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-image">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="article-content">
+                            <div class="article-date">5 مايو 2025</div>
+                            <h4 class="article-title">استراتيجيات التفاوض الناجح في الصفقات العقارية</h4>
+                            <p class="article-excerpt">نصائح وإرشادات للوسطاء العقاريين حول كيفية إدارة المفاوضات بنجاح وتحقيق أفضل النتائج لجميع الأطراف المعنية.</p>
+                            <a href="articles.html" class="article-link">
+                                قراءة المزيد <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h3 class="cta-title">انضم إلى منصة وسّط اليوم</h3>
+                <p class="cta-description">كن جزءاً من مجتمع الوسطاء العقاريين المرخصين واستفد من جميع المميزات التي توفرها منصة وسّط لتطوير أعمالك وزيادة فرص نجاحك.</p>
+                <a href="https://wa.me/966534394757" class="cta-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل معنا للتسجيل
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="performance_optimizations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إزالة مؤشر التحميل
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+                document.body.classList.remove('page-loading');
+            }, 500);
+
+            // التحقق من حالة تسجيل الدخول
+            const isLoggedIn = localStorage.getItem('wasset_logged_in') === 'true';
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // الحصول على بيانات الوسيط من التخزين المحلي
+            const brokerData = JSON.parse(localStorage.getItem('wasset_broker_data') || '{}');
+            const userPhone = localStorage.getItem('wasset_phone');
+            const userType = localStorage.getItem('wasset_user_type');
+
+            // تحديث معلومات المستخدم في الرأس
+            updateUserInfo(brokerData, userPhone, userType);
+
+            // تسجيل الخروج
+            const logoutBtn = document.getElementById('logout-btn');
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('wasset_logged_in');
+                localStorage.removeItem('wasset_user_type');
+                localStorage.removeItem('wasset_phone');
+                localStorage.removeItem('wasset_broker_data');
+                window.location.href = 'login.html';
+            });
+
+            // تحميل صورة المؤسس
+            loadFounderImage();
+        });
+
+        // تحديث معلومات المستخدم في الرأس
+        function updateUserInfo(brokerData, userPhone, userType) {
+            const userName = document.getElementById('user-name');
+            const userRole = document.getElementById('user-role');
+            const userAvatar = document.getElementById('user-avatar');
+            
+            // تحديث الاسم
+            if (brokerData['اسم الوسيط']) {
+                userName.textContent = brokerData['اسم الوسيط'];
+            } else {
+                userName.textContent = userPhone;
+            }
+            
+            // تحديث نوع المستخدم
+            if (brokerData['نوع الوسيط']) {
+                userRole.textContent = brokerData['نوع الوسيط'];
+            } else {
+                userRole.textContent = userType === 'individual' ? 'وسيط فرد' : 'منشأة عقارية';
+            }
+            
+            // تحديث الصورة الرمزية
+            if (brokerData['اسم الوسيط']) {
+                userAvatar.textContent = brokerData['اسم الوسيط'].charAt(0);
+            } else {
+                userAvatar.textContent = userPhone.charAt(userPhone.length - 1);
+            }
+        }
+
+        // تحميل صورة المؤسس
+        function loadFounderImage() {
+            const founderImage = document.getElementById('founder-image');
+            
+            // التحقق من وجود الصورة
+            const img = new Image();
+            img.onload = function() {
+                // الصورة موجودة، لا حاجة لفعل أي شيء
+            };
+            img.onerror = function() {
+                // الصورة غير موجودة، استخدام صورة افتراضية
+                founderImage.src = 'https://via.placeholder.com/300x400?text=علي+الشهري';
+            };
+            img.src = founderImage.src;
+        }
+    </script>
+</body>
+</html>
