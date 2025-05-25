@@ -1,0 +1,235 @@
+/* تنسيقات القائمة الرئيسية المتجاوبة لمنصة وسّط
+ * تم تصميمها لتكون متوافقة مع جميع الأجهزة بما فيها آيفون 12 برو
+ */
+
+/* تنسيقات عامة للقائمة */
+.responsive-navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* تنسيقات الشعار */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* تنسيقات القائمة الأفقية للشاشات الكبيرة */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    margin: 0 10px;
+}
+
+.navbar-menu a {
+    color: #0a3d62;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-menu a:hover, .navbar-menu a.active {
+    background-color: rgba(10, 61, 98, 0.1);
+}
+
+/* تنسيقات أزرار الإجراءات */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-action-btn {
+    background: none;
+    border: none;
+    color: #0a3d62;
+    font-size: 18px;
+    margin-left: 15px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.login-btn {
+    background-color: #0a3d62;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.login-btn:hover {
+    background-color: #0c2461;
+}
+
+/* زر القائمة للشاشات الصغيرة */
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #0a3d62;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* تنسيقات القائمة المنسدلة للشاشات الصغيرة */
+.navbar-dropdown {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 999;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.navbar-dropdown.active {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.navbar-dropdown-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-dropdown-menu a {
+    display: block;
+    color: #0a3d62;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar-dropdown-menu a:hover, .navbar-dropdown-menu a.active {
+    background-color: rgba(10, 61, 98, 0.1);
+}
+
+/* تنسيقات للشاشات المتوسطة والصغيرة */
+@media (max-width: 992px) {
+    .navbar-menu {
+        display: none;
+    }
+    
+    .navbar-toggle {
+        display: block;
+    }
+    
+    .navbar-dropdown {
+        display: block;
+    }
+}
+
+/* تنسيقات خاصة للهواتف الصغيرة مثل آيفون 12 برو */
+@media (max-width: 390px) {
+    .navbar-container {
+        padding: 8px 15px;
+    }
+    
+    .navbar-logo img {
+        height: 35px;
+    }
+    
+    .login-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .navbar-action-btn {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+}
+
+/* تعديل المحتوى الرئيسي ليبدأ بعد القائمة */
+.main-content {
+    padding-top: 70px; /* ارتفاع القائمة + هامش إضافي */
+}
+
+/* تنسيقات للوضع المظلم (اختياري) */
+@media (prefers-color-scheme: dark) {
+    .responsive-navbar {
+        background-color: #1a1a1a;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .navbar-menu a {
+        color: #f0f0f0;
+    }
+    
+    .navbar-menu a:hover, .navbar-menu a.active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-action-btn {
+        color: #f0f0f0;
+    }
+    
+    .login-btn {
+        background-color: #1e88e5;
+    }
+    
+    .login-btn:hover {
+        background-color: #1565c0;
+    }
+    
+    .navbar-toggle {
+        color: #f0f0f0;
+    }
+    
+    .navbar-dropdown {
+        background-color: #1a1a1a;
+    }
+    
+    .navbar-dropdown-menu a {
+        color: #f0f0f0;
+    }
+    
+    .navbar-dropdown-menu a:hover, .navbar-dropdown-menu a.active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+</head>
+<body>
+    <!-- ترويسة الموقع -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">وسّط</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="broker-dashboard.html">لوحة التحكم</a></li>
+                        <li><a href="properties.html">العقارات</a></li>
+                        <li><a href="smart-offers.html">العروض الذكية</a></li>
+                        <li><a href="early-adopter.html">برنامج الانتشار</a></li>
+                        <li>
+                            <div class="notification-bell">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-count">0</span>
+                            </div>
+                            <div class="notification-panel">
+                                <div class="notification-header">
+                                    <h3>الإشعارات</h3>
+                                    <span class="mark-all-read">تعيين الكل كمقروء</span>
+                                </div>
+                                <div class="notification-list">
+                                    <!-- ستتم تعبئة هذا القسم ديناميكياً بواسطة JavaScript -->
+                                </div>
+                                <div class="notification-footer">
+                                    <a href="notifications.html">عرض جميع الإشعارات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="profile.html" class="btn btn-primary">الملف الشخصي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم المقالات -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="articles-header">
+                <h1 class="section-title">المقالات</h1>
+                <div class="articles-subtitle">مقالات متخصصة في مجال الوساطة العقارية</div>
+                
+                <div class="articles-search">
+                    <form id="articles-search-form">
+                        <div class="search-input-group">
+                            <input type="text" placeholder="ابحث في المقالات..." class="search-input">
+                            <button type="submit" class="search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="articles-categories">
+                    <button class="category-button active" data-category="all">جميع المقالات</button>
+                    <button class="category-button" data-category="customer-service">خدمة العملاء</button>
+                    <button class="category-button" data-category="ai">الذكاء الاصطناعي</button>
+                    <button class="category-button" data-category="negotiation">التفاوض</button>
+                    <button class="category-button" data-category="persuasion">قوة الإقناع</button>
+                    <button class="category-button" data-category="market">سوق العقار</button>
+                </div>
+            </div>
+            
+            <div class="articles-grid">
+                <!-- مقالة 1: خدمة العملاء -->
+                <div class="article-card" data-category="customer-service">
+                    <div class="article-image">
+                        <img src="images/customer-service.jpg" alt="فن خدمة العملاء في القطاع العقاري">
+                        <div class="article-category">خدمة العملاء</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">فن خدمة العملاء في القطاع العقاري</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">15 مايو 2025</div>
+                        </div>
+                        <p class="article-excerpt">تعرف على أهم استراتيجيات خدمة العملاء التي تميز الوسيط العقاري الناجح وتساعده على بناء قاعدة عملاء مخلصة...</p>
+                        <a href="article-customer-service.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+                
+                <!-- مقالة 2: الذكاء الاصطناعي -->
+                <div class="article-card" data-category="ai">
+                    <div class="article-image">
+                        <img src="images/ai-real-estate.jpg" alt="كيف يغير الذكاء الاصطناعي مستقبل الوساطة العقارية">
+                        <div class="article-category">الذكاء الاصطناعي</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">كيف يغير الذكاء الاصطناعي مستقبل الوساطة العقارية</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">10 مايو 2025</div>
+                        </div>
+                        <p class="article-excerpt">استكشف كيف يمكن للوسطاء العقاريين الاستفادة من تقنيات الذكاء الاصطناعي لتحسين خدماتهم وزيادة كفاءتهم...</p>
+                        <a href="article-ai.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+                
+                <!-- مقالة 3: التفاوض -->
+                <div class="article-card" data-category="negotiation">
+                    <div class="article-image">
+                        <img src="images/negotiation.jpg" alt="فنون التفاوض الناجح في الصفقات العقارية">
+                        <div class="article-category">التفاوض</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">فنون التفاوض الناجح في الصفقات العقارية</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">5 مايو 2025</div>
+                        </div>
+                        <p class="article-excerpt">تعلم أهم استراتيجيات وتكتيكات التفاوض التي تمكنك من إتمام الصفقات العقارية بنجاح وتحقيق أفضل النتائج لعملائك...</p>
+                        <a href="article-negotiation.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+                
+                <!-- مقالة 4: قوة الإقناع -->
+                <div class="article-card" data-category="persuasion">
+                    <div class="article-image">
+                        <img src="images/persuasion.jpg" alt="قوة الإقناع: كيف تؤثر في قرارات العملاء العقارية">
+                        <div class="article-category">قوة الإقناع</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">قوة الإقناع: كيف تؤثر في قرارات العملاء العقارية</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">1 مايو 2025</div>
+                        </div>
+                        <p class="article-excerpt">اكتشف الأساليب النفسية والاستراتيجيات المؤثرة التي تساعدك على إقناع العملاء واتخاذ القرارات العقارية المناسبة...</p>
+                        <a href="article-persuasion.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+                
+                <!-- مقالة 5: خدمة العملاء المتميزة -->
+                <div class="article-card" data-category="customer-service">
+                    <div class="article-image">
+                        <img src="images/premium-service.jpg" alt="استراتيجيات خدمة العملاء المتميزة للوسطاء العقاريين">
+                        <div class="article-category">خدمة العملاء</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">استراتيجيات خدمة العملاء المتميزة للوسطاء العقاريين</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">25 أبريل 2025</div>
+                        </div>
+                        <p class="article-excerpt">تعرف على كيفية تقديم تجربة عملاء استثنائية تميزك عن منافسيك وتبني سمعة قوية في سوق العقارات...</p>
+                        <a href="article-premium-service.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+                
+                <!-- مقالة 6: تطبيقات الذكاء الاصطناعي -->
+                <div class="article-card" data-category="ai">
+                    <div class="article-image">
+                        <img src="images/ai-applications.jpg" alt="تطبيقات الذكاء الاصطناعي العملية في القطاع العقاري">
+                        <div class="article-category">الذكاء الاصطناعي</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">تطبيقات الذكاء الاصطناعي العملية في القطاع العقاري</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">20 أبريل 2025</div>
+                        </div>
+                        <p class="article-excerpt">استعراض لأهم تطبيقات الذكاء الاصطناعي التي يمكن للوسطاء العقاريين استخدامها لتحسين أدائهم وزيادة مبيعاتهم...</p>
+                        <a href="article-ai-applications.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+                
+                <!-- مقالة 7: التفاوض المتقدم -->
+                <div class="article-card" data-category="negotiation">
+                    <div class="article-image">
+                        <img src="images/advanced-negotiation.jpg" alt="استراتيجيات التفاوض المتقدمة للصفقات العقارية الكبرى">
+                        <div class="article-category">التفاوض</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">استراتيجيات التفاوض المتقدمة للصفقات العقارية الكبرى</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">15 أبريل 2025</div>
+                        </div>
+                        <p class="article-excerpt">تعمق في فنون التفاوض المتقدمة التي تحتاجها لإتمام الصفقات العقارية الكبرى والتعامل مع المستثمرين المحترفين...</p>
+                        <a href="article-advanced-negotiation.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+                
+                <!-- مقالة 8: علم النفس في البيع العقاري -->
+                <div class="article-card" data-category="persuasion">
+                    <div class="article-image">
+                        <img src="images/psychology-sales.jpg" alt="علم النفس في البيع العقاري: فهم دوافع العملاء">
+                        <div class="article-category">قوة الإقناع</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">علم النفس في البيع العقاري: فهم دوافع العملاء</h3>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <img src="images/author-avatar.jpg" alt="صورة الكاتب" class="author-avatar">
+                                <span class="author-name">محمد العتيبي</span>
+                            </div>
+                            <div class="article-date">10 أبريل 2025</div>
+                        </div>
+                        <p class="article-excerpt">اكتشف كيف يمكنك فهم الدوافع النفسية للعملاء واستخدامها لتحسين عملية البيع وتقديم الحلول العقارية المناسبة...</p>
+                        <a href="article-psychology-sales.html" class="article-link">قراءة المزيد</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="articles-pagination">
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button next">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <div class="articles-newsletter">
+                <div class="newsletter-content">
+                    <h3>اشترك في النشرة البريدية</h3>
+                    <p>احصل على أحدث المقالات والأخبار العقارية مباشرة إلى بريدك الإلكتروني</p>
+                    <form id="newsletter-form">
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
+                            <button type="submit" class="btn btn-primary">اشتراك</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الموقع -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن المنصة</h3>
+                    <ul>
+                        <li><a href="vision.html">رؤيتنا</a></li>
+                        <li><a href="founder.html">المؤسس</a></li>
+                        <li><a href="#">فريق العمل</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+           
+(Content truncated due to size limit. Use line ranges to read in chunks)

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل العرض العقاري - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/broker_features.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+</head>
+<body>
+    <!-- ترويسة الموقع -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">وسّط</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="broker-dashboard.html">لوحة التحكم</a></li>
+                        <li><a href="properties.html">العقارات</a></li>
+                        <li><a href="smart-offers.html" class="active">العروض الذكية</a></li>
+                        <li><a href="early-adopter.html">برنامج الانتشار</a></li>
+                        <li>
+                            <div class="notification-bell has-notifications">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-count">3</span>
+                            </div>
+                            <div class="notification-panel">
+                                <div class="notification-header">
+                                    <h3>الإشعارات</h3>
+                                    <span class="mark-all-read">تعيين الكل كمقروء</span>
+                                </div>
+                                <div class="notification-list">
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>تم إضافة عقار جديد يطابق معاييرك: فيلا في حي النرجس</p>
+                                            <span class="notification-time">منذ 30 دقيقة</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>عميل جديد مهتم بعقارك: شقة في حي الملقا</p>
+                                            <span class="notification-time">منذ ساعتين</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>تحديث في أسعار العقارات: انخفاض بنسبة 5% في حي الياسمين</p>
+                                            <span class="notification-time">منذ 3 ساعات</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notification-footer">
+                                    <a href="notifications.html">عرض جميع الإشعارات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="profile.html" class="btn btn-primary">الملف الشخصي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم تفاصيل العرض العقاري -->
+    <section class="section">
+        <div class="container">
+            <div class="property-details-container">
+                <!-- شريط المسار -->
+                <div class="breadcrumb">
+                    <a href="index.html">الرئيسية</a>
+                    <i class="fas fa-chevron-left"></i>
+                    <a href="smart-offers.html">العروض الذكية</a>
+                    <i class="fas fa-chevron-left"></i>
+                    <span>فيلا فاخرة في حي النرجس</span>
+                </div>
+                
+                <!-- رقم العرض والعلامة المائية -->
+                <div class="property-reference">
+                    <div class="property-id">
+                        <span>رقم العرض:</span>
+                        <strong>PROP-1001</strong>
+                    </div>
+                    <div class="property-broker-ref">
+                        <span>رمز الوسيط:</span>
+                        <strong>BROKER123</strong>
+                    </div>
+                </div>
+                
+                <!-- معلومات العرض الرئيسية -->
+                <div class="property-main-details">
+                    <div class="property-gallery">
+                        <div class="property-main-image">
+                            <img src="images/property1.jpg" alt="فيلا فاخرة في حي النرجس" id="main-property-image">
+                            <div class="property-watermark">
+                                <div class="watermark-content">
+                                    <span class="watermark-logo">وسّط</span>
+                                    <span class="watermark-broker">BROKER123</span>
+                                </div>
+                            </div>
+                            <div class="property-badges">
+                                <span class="property-badge new">جديد</span>
+                                <span class="property-badge exclusive">حصري</span>
+                            </div>
+                            <div class="gallery-controls">
+                                <button class="gallery-control prev"><i class="fas fa-chevron-right"></i></button>
+                                <button class="gallery-control next"><i class="fas fa-chevron-left"></i></button>
+                            </div>
+                        </div>
+                        <div class="property-thumbnails">
+                            <div class="thumbnail active" data-src="images/property1.jpg">
+                                <img src="images/property1.jpg" alt="صورة 1">
+                            </div>
+                            <div class="thumbnail" data-src="images/property2.jpg">
+                                <img src="images/property2.jpg" alt="صورة 2">
+                            </div>
+                            <div class="thumbnail" data-src="images/property3.jpg">
+                                <img src="images/property3.jpg" alt="صورة 3">
+                            </div>
+                            <div class="thumbnail" data-src="images/property4.jpg">
+                                <img src="images/property4.jpg" alt="صورة 4">
+                            </div>
+                            <div class="thumbnail" data-src="images/property1.jpg">
+                                <img src="images/property1.jpg" alt="صورة 5">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-info">
+                        <div class="property-header">
+                            <h1 class="property-title">فيلا فاخرة في حي النرجس</h1>
+                            <div class="property-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>الرياض، حي النرجس، شارع الأمير سعود بن محمد</span>
+                            </div>
+                        </div>
+                        
+                        <div class="property-price">
+                            <span class="price-value">2,500,000</span>
+                            <span class="price-currency">ريال سعودي</span>
+                        </div>
+                        
+                        <div class="property-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span class="spec-value">450</span>
+                                <span class="spec-label">م²</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-bed"></i>
+                                <span class="spec-value">5</span>
+                                <span class="spec-label">غرف</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-bath"></i>
+                                <span class="spec-value">4</span>
+                                <span class="spec-label">حمامات</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-car"></i>
+                                <span class="spec-value">2</span>
+                                <span class="spec-label">مواقف</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span class="spec-value">2023</span>
+                                <span class="spec-label">سنة البناء</span>
+                            </div>
+                        </div>
+                        
+                        <div class="property-source">
+                            <div class="source-badge">
+                                <i class="fas fa-user"></i>
+                                <span>من المالك مباشرة</span>
+                            </div>
+                            <div class="property-date">
+                                <i class="fas fa-clock"></i>
+                                <span>تم النشر: 15 مايو 2025</span>
+                            </div>
+                        </div>
+                        
+                        <div class="property-actions">
+                            <a href="#contact-form" class="btn btn-primary btn-lg">
+                                <i class="fas fa-phone-alt"></i>
+                                تواصل مع الوسيط
+                            </a>
+                            <button class="btn btn-outline btn-lg share-property">
+                                <i class="fas fa-share-alt"></i>
+                                مشاركة
+                            </button>
+                            <div class="share-options">
+                                <a href="#" class="share-option whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    واتساب
+                                </a>
+                                <a href="#" class="share-option twitter">
+                                    <i class="fab fa-twitter"></i>
+                                    تويتر
+                                </a>
+                                <a href="#" class="share-option facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                    فيسبوك
+                                </a>
+                                <a href="#" class="share-option copy-link">
+                                    <i class="fas fa-link"></i>
+                                    نسخ الرابط
+                                </a>
+                            </div>
+                            <button class="btn btn-outline btn-lg save-property">
+                                <i class="far fa-heart"></i>
+                                حفظ
+                            </button>
+                        </div>
+                        
+                        <div class="property-commission">
+                            <div class="commission-info">
+                                <i class="fas fa-percentage"></i>
+                                <span>العمولة: <strong>2.5%</strong> من قيمة العقار</span>
+                            </div>
+                            <div class="commission-value">
+                                <span>قيمة العمولة التقريبية: <strong>62,500</strong> ريال</span>
+                            </div>
+                        </div>
+                        
+                        <div class="property-broker-info">
+                            <div class="broker-avatar">
+                                <img src="images/broker-avatar.jpg" alt="صورة الوسيط">
+                            </div>
+                            <div class="broker-details">
+                                <h3 class="broker-name">أحمد محمد</h3>
+                                <div class="broker-title">وسيط عقاري مرخص</div>
+                                <div class="broker-license">رقم الترخيص: 123456</div>
+                                <div class="broker-rating">
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-value">4.5</span>
+                                    <span class="rating-count">(42 تقييم)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- تفاصيل العرض -->
+                <div class="property-details-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-button active" data-tab="description">الوصف</button>
+                        <button class="tab-button" data-tab="features">المميزات</button>
+                        <button class="tab-button" data-tab="location">الموقع</button>
+                        <button class="tab-button" data-tab="documents">المستندات</button>
+                        <button class="tab-button" data-tab="similar">عقارات مشابهة</button>
+                    </div>
+                    
+                    <div class="tabs-content">
+                        <!-- وصف العقار -->
+                        <div class="tab-pane active" id="description">
+                            <h3 class="tab-title">وصف العقار</h3>
+                            <div class="property-description">
+                                <p>فيلا فاخرة حديثة البناء في حي النرجس شمال الرياض، تتميز بموقعها الاستراتيجي وتصميمها العصري الفريد. تم بناء الفيلا وفق أعلى معايير الجودة باستخدام مواد بناء فاخرة ومستدامة.</p>
+                                
+                                <p>تتكون الفيلا من طابقين:</p>
+                                
+                                <h4>الطابق الأرضي:</h4>
+                                <ul>
+                                    <li>مجلس رجال واسع مع مدخل مستقل</li>
+                                    <li>مجلس نساء فاخر</li>
+                                    <li>صالة طعام رئيسية</li>
+                                    <li>مطبخ مجهز بالكامل بأحدث الأجهزة</li>
+         
+(Content truncated due to size limit. Use line ranges to read in chunks)

@@ -1,0 +1,805 @@
+/* تحسينات الاستجابة لجميع أحجام الشاشات */
+
+/* متغيرات CSS الأساسية */
+:root {
+    --primary-color: #1e5f74;
+    --secondary-color: #133b5c;
+    --accent-color: #ffa62b;
+    --light-color: #f7f9f9;
+    --dark-color: #1d2d50;
+    --success-color: #2ecc71;
+    --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%);
+    --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --vision-green: #00833e;
+    --vision-gradient: linear-gradient(135deg, #00833e 0%, #006428 100%);
+    --font-family: 'Tajawal', sans-serif;
+}
+
+/* تحسينات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-color);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    direction: rtl;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* تحسينات الحاويات */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* تحسينات الترويسة */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+/* تحسينات القائمة */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 8px 12px;
+}
+
+/* تحسينات الأزرار */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    outline: none;
+    text-decoration: none;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* تحسينات النماذج */
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(30, 95, 116, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* تحسينات البطاقات */
+.card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+/* تحسينات الشبكات */
+.grid {
+    display: grid;
+    gap: 30px;
+}
+
+/* تحسينات الصور */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تحسينات الأقسام */
+.section {
+    padding: 60px 0;
+}
+
+/* تحسينات التذييل */
+footer {
+    width: 100%;
+}
+
+/* تحسينات الاستجابة للأجهزة المختلفة */
+
+/* الأجهزة الكبيرة (أجهزة الكمبيوتر المكتبية) */
+@media (min-width: 1200px) {
+    html {
+        font-size: 18px;
+    }
+    
+    .container {
+        max-width: 1140px;
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* الأجهزة المتوسطة (أجهزة الكمبيوتر المحمولة) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* الأجهزة الصغيرة (الأجهزة اللوحية) */
+@media (min-width: 768px) and (max-width: 991px) {
+    html {
+        font-size: 16px;
+    }
+    
+    .container {
+        max-width: 720px;
+    }
+    
+    .grid-4, .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .header-content {
+        flex-direction: column;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+}
+
+/* الأجهزة الصغيرة جداً (الهواتف الذكية) */
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .grid-4, .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-content {
+        flex-direction: column;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-menu {
+        flex-direction: column;
+    }
+    
+    .user-info {
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+}
+
+/* الهواتف الصغيرة */
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* تحسينات الأداء */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* تحسينات إضافية للتوافق مع الأجهزة المختلفة */
+@supports (-webkit-touch-callout: none) {
+    /* تحسينات خاصة بأجهزة iOS */
+    body {
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    input, textarea {
+        -webkit-appearance: none;
+        border-radius: var(--border-radius);
+    }
+}
+
+/* تحسينات للطباعة */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* تحسينات للوضع المظلم */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-color: #1a1a1a;
+        --dark-color: #f7f9f9;
+    }
+    
+    body {
+        color: #f7f9f9;
+    }
+    
+    .card, .feature-card, .vision-pillar, .vision-goal, .contribution-card {
+        background-color: #2a2a2a;
+    }
+    
+    input, select, textarea {
+        background-color: #333;
+        color: #f7f9f9;
+        border-color: #555;
+    }
+}
+
+/* تحسينات للتحميل */
+.lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lazy-load.loaded {
+    opacity: 1;
+}
+
+/* تحسينات للتفاعل */
+.interactive {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interactive:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* تحسينات للوصول */
+:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* تحسينات للتحميل السريع */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* تحسينات للأداء */
+.will-change {
+    will-change: transform, opacity;
+}
+
+/* تحسينات للتوافق مع الشاشات العالية الدقة */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات الكبيرة جداً */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات الصغيرة جداً */
+@media (max-width: 320px) {
+    html {
+        font-size: 12px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات الطويلة */
+@media (max-height: 600px) {
+    .section {
+        padding: 30px 0;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات القصيرة والعريضة */
+@media (max-height: 500px) and (min-width: 700px) {
+    .page-header {
+        padding: 30px 0;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات القابلة للطي */
+@media (max-width: 280px) {
+    html {
+        font-size: 11px;
+    }
+    
+    .btn {
+        padding: 8px 15px;
+    }
+}
+
+/* تحسينات للتوافق مع أجهزة القراءة الشاشية */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* تحسينات للتوافق مع لوحة المفاتيح */
+:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* تحسينات للتوافق مع أجهزة اللمس */
+@media (hover: none) {
+    .interactive:hover {
+        transform: none;
+        box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+        transform: none;
+        box-shadow: var(--shadow);
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات العريضة جداً */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1500px;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات العريضة بشكل غير عادي */
+@media (min-aspect-ratio: 2/1) {
+    .page-header {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات الطويلة بشكل غير عادي */
+@media (max-aspect-ratio: 1/2) {
+    .section {
+        padding: 50px 0;
+    }
+}
+
+/* تحسينات للتوافق مع أجهزة التلفاز الذكية */
+@media (min-width: 1920px) {
+    html {
+        font-size: 20px;
+    }
+    
+    .container {
+        max-width: 1800px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة القديمة */
+@supports not (display: grid) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .grid > * {
+        flex: 0 0 calc(33.333% - 20px);
+        margin: 10px;
+    }
+    
+    @media (max-width: 991px) {
+        .grid > * {
+            flex: 0 0 calc(50% - 20px);
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .grid > * {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+/* تحسينات للتوافق مع متصفحات IE */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    body {
+        display: block;
+    }
+    
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات ذات الكثافة العالية */
+@media (min-resolution: 2dppx) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات ذات الكثافة المنخفضة */
+@media (max-resolution: 1dppx) {
+    body {
+        font-smoothing: never;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات الكبيرة جداً */
+@media (min-width: 2560px) {
+    html {
+        font-size: 22px;
+    }
+    
+    .container {
+        max-width: 2200px;
+    }
+}
+
+/* تحسينات للتوافق مع الشاشات الصغيرة جداً */
+@media (max-width: 240px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المنحنية */
+@supports (border-radius: 50%) {
+    .curved-content {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات القابلة للطي */
+@supports (display: flex) and (flex-wrap: wrap) {
+    .folding-content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المزدوجة */
+@media (spanning: single-fold-vertical) {
+    .dual-screen-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المزدوجة الأفقية */
+@media (spanning: single-fold-horizontal) {
+    .dual-screen-content {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة جداً والدقة العالية */
+@media (min-width: 3840px) {
+    html {
+        font-size: 24px;
+    }
+    
+    .container {
+        max-width: 3000px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة جداً والدقة المنخفضة */
+@media (max-width: 240px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 9px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المتوسطة والدقة العالية */
+@media (min-width: 768px) and (max-width: 991px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 15px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة والدقة المنخفضة */
+@media (min-width: 1200px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 17px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة والدقة العالية */
+@media (max-width: 767px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة جداً والدقة المنخفضة */
+@media (min-width: 1600px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 19px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة جداً والدقة العالية */
+@media (max-width: 320px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 11px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المتوسطة والدقة المنخفضة */
+@media (min-width: 768px) and (max-width: 991px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 15px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة والدقة العالية */
+@media (min-width: 1200px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 17px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة والدقة المنخفضة */
+@media (max-width: 767px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة جداً والدقة العالية */
+@media (min-width: 1600px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 19px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة جداً والدقة المنخفضة */
+@media (max-width: 320px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 11px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المتوسطة والدقة العالية */
+@media (min-width: 992px) and (max-width: 1199px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المتوسطة والدقة المنخفضة */
+@media (min-width: 992px) and (max-width: 1199px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة جداً والدقة العالية */
+@media (min-width: 2560px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 22px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة جداً والدقة المنخفضة */
+@media (min-width: 2560px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 22px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة جداً والدقة العالية */
+@media (max-width: 240px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 10px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة جداً والدقة المنخفضة */
+@media (max-width: 240px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 10px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة جداً والدقة العالية */
+@media (min-width: 3840px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 24px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة جداً والدقة المنخفضة */
+@media (min-width: 3840px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 24px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة جداً والدقة العالية */
+@media (max-width: 320px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الصغيرة جداً والدقة المنخفضة */
+@media (max-width: 320px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المتوسطة والدقة العالية */
+@media (min-width: 768px) and (max-width: 991px) and (min-resolution: 2dppx) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات المتوسطة والدقة المنخفضة */
+@media (min-width: 768px) and (max-width: 991px) and (max-resolution: 1dppx) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* تحسينات للتوافق مع الأجهزة ذات الشاشات الكبيرة والدقة العالية */
+@media (mi
+(Content truncated due to size limit. Use line ranges to read in chunks)

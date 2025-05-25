@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث الشامل - منصة وسّط للوساطة العقارية</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .search-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .search-header h1 {
+            color: #0a3d62;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .search-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .search-form {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #0a3d62;
+            box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.2);
+        }
+        
+        .search-button {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            background-color: #0a3d62;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: #0c2461;
+        }
+        
+        .search-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-button {
+            background-color: #f5f5f5;
+            color: #333;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-button:hover, .filter-button.active {
+            background-color: #0a3d62;
+            color: white;
+        }
+        
+        .search-results {
+            margin-top: 30px;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .results-header h2 {
+            color: #0a3d62;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .results-count {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .result-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .result-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .result-title {
+            color: #0a3d62;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .result-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .result-content {
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .result-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .result-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .result-meta i {
+            margin-left: 5px;
+        }
+        
+        .result-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .result-tag {
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .pagination-button {
+            background-color: #f5f5f5;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin: 0 5px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-button:hover, .pagination-button.active {
+            background-color: #0a3d62;
+            color: white;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .no-results h3 {
+            color: #0a3d62;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .no-results p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .search-suggestions {
+            margin-top: 30px;
+        }
+        
+        .search-suggestions h3 {
+            color: #0a3d62;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .suggestions-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .suggestion-item {
+            background-color: #f5f5f5;
+            color: #333;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .suggestion-item:hover {
+            background-color: #0a3d62;
+            color: white;
+        }
+        
+        .highlight {
+            background-color: #fff9c4;
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .search-header h1 {
+                font-size: 2rem;
+            }
+            
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .search-button {
+                position: relative;
+                left: auto;
+                top: auto;
+                margin-top: 10px;
+                width: 100%;
+            }
+            
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .results-count {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/wasset-logo.png" alt="شعار منصة وسّط">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="broker-dashboard.html">لوحة الوسيط</a></li>
+                    <li><a href="smart-offers.html">العروض الذكية</a></li>
+                    <li><a href="property-request.html">طلب عقاري</a></li>
+                    <li><a href="early-adopter.html">برنامج الانتشار المبكر</a></li>
+                    <li><a href="vision.html">رؤيتنا</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="search-toggle" class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="chatbot-toggle" class="chatbot-icon">
+                    <i class="fas fa-robot"></i>
+                </button>
+                <a href="#" class="login-button">تسجيل الدخول</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- محتوى الصفحة -->
+    <div class="search-container">
+        <div class="search-header">
+            <h1>البحث الشامل في منصة وسّط</h1>
+            <p>ابحث في جميع محتويات المنصة من عقارات، مقالات، صفحات، وأسئلة شائعة</p>
+        </div>
+        
+        <form id="global-search-form" class="search-form">
+            <input type="text" id="global-search-input" class="search-input" placeholder="ابحث عن عقارات، مقالات، معلومات..." autofocus>
+            <button type="submit" class="search-button">
+                <i class="fas fa-search"></i> بحث
+            </button>
+        </form>
+        
+        <div class="search-filters">
+            <button class="filter-button active" data-filter="all">الكل</button>
+            <button class="filter-button" data-filter="properties">العقارات</button>
+            <button class="filter-button" data-filter="articles">المقالات</button>
+            <button class="filter-button" data-filter="pages">الصفحات</button>
+            <button class="filter-button" data-filter="faq">الأسئلة الشائعة</button>
+        </div>
+        
+        <div id="global-search-results" class="search-results">
+            <!-- نتائج البحث ستظهر هنا -->
+        </div>
+    </div>
+    
+    <!-- روبوت المحادثة -->
+    <div id="chatbot-panel" class="chatbot-panel">
+        <div class="chatbot-header">
+            <h3>مساعد وسّط الذكي</h3>
+            <button id="close-chatbot" class="close-button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+            <!-- رسائل المحادثة ستظهر هنا -->
+        </div>
+        <form id="chatbot-form" class="chatbot-form">
+            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="اكتب سؤالك هنا...">
+            <button type="submit" class="chatbot-send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>عن منصة وسّط</h3>
+                    <p>منصة متخصصة للوسطاء العقاريين المرخصين في المملكة العربية السعودية، تضم أكثر من 44 ألف وسيط عقاري مرخص.</p>
+                    <div class="contact">
+                        <p><i class="fas fa-phone"></i> +966 53 439 4757</p>
+                        <p><i class="fas fa-envelope"></i> info@wasset.com</p>
+                    </div>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="broker-dashboard.html">لوحة الوسيط</a></li>
+                        <li><a href="smart-offers.html">العروض الذكية</a></li>
+                        <li><a href="property-request.html">طلب عقاري</a></li>
+                        <li><a href="early-adopter.html">برنامج الانتشار المبكر</a></li>
+                        <li><a href="vision.html">رؤيتنا</a></li>
+                        <li><a href="articles.html">المقالات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-form">
+                    <h3>تواصل معنا</h3>
+                    <form action="#" method="post">
+                        <input type="email" name="email" class="contact-input" placeholder="بريدك الإلكتروني">
+                        <textarea name="message" class="contact-input" placeholder="رسالتك"></textarea>
+                        <button type="submit" class="btn contact-btn">إرسال</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 منصة وسّط للوساطة العقارية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- سكريبت البحث والروبوت -->
+    <script src="js/search-bot.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تفعيل زر تبديل الروبوت
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+            const chatbotPanel = document.getElementById('chatbot-panel');
+            const closeChatbot = document.getElementById('close-chatbot');
+            
+            if (chatbotToggle && chatbotPanel && closeChatbot) {
+                chatbotToggle.addEventListener('click', function() {
+                    chatbotPanel.classList.toggle('active');
+                });
+                
+                closeChatbot.addEventListener('click', function() {
+                    chatbotPanel.classList.remove('active');
+                });
+            }
+            
+            // تفعيل أزرار التصفية
+            const filterButtons = document.querySelectorAll('.filter-button');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // إزالة الفئة النشطة من جميع الأزرار
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // إضافة الفئة النشطة إلى الزر المنقور
+                    this.classList.add('active');
+                    
+                    // تطبيق التصفية (في الإنتاج، يمكن استخدام هذا لتصفية النتائج)
+                    const filter = this.getAttribute('data-filter');
+                    console.log('تصفية حسب:', filter);
+                    
+                    // إذا كان هناك نتائج بحث، يمكن تصفيتها هنا
+                    if (document.getElementById('global-search-input').value.trim() !== '') {
+                        // إعادة البحث مع التصفية
+                        const searchQuery = document.getElementById('global-search-input').value;
+                        // في الإنتاج، يمكن استدعاء دالة البحث مع معلمة التصفية
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -2,1565 +2,323 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="msapplication-TileColor" content="#1e5f74">
-    <meta name="theme-color" content="#1e5f74">
-    <title>منصة وسّط للوسطاء العقاريين المرخصين</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap">
-    <link rel="stylesheet" href="responsive_fixes.css">
-    <style>
-        :root {
-            --primary-color: #1e5f74;
-            --secondary-color: #133b5c;
-            --accent-color: #ffa62b;
-            --light-color: #f7f9f9;
-            --dark-color: #1d2d50;
-            --success-color: #2ecc71;
-            --error-color: #e74c3c;
-            --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%);
-            --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%);
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            --border-radius: 12px;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        body {
-            background-color: var(--light-color);
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: inline-block;
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            padding: 5px 15px;
-            border: 2px solid var(--accent-color);
-            border-radius: var(--border-radius);
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav ul li:last-child {
-            margin-right: 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        nav ul li a.active {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            margin-left: 10px;
-        }
-
-        .user-info {
-            margin-left: 10px;
-        }
-
-        .user-name {
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .user-role {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            left: 0;
-            top: 100%;
-            background-color: white;
-            min-width: 180px;
-            box-shadow: var(--shadow);
-            border-radius: var(--border-radius);
-            z-index: 1;
-            margin-top: 10px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f5f5f5;
-        }
-
-        .dropdown-content a i {
-            margin-left: 10px;
-            color: var(--primary-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .hero-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            border-radius: var(--border-radius);
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn-accent {
-            background: var(--gradient-accent);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .section-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 40px;
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .features-section {
-            margin-bottom: 60px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 30px;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 30px;
-        }
-
-        .feature-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .feature-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .interfaces-section {
-            margin-bottom: 60px;
-        }
-
-        .interfaces-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .interface-tab {
-            padding: 15px 30px;
-            font-weight: 700;
-            color: #666;
-            cursor: pointer;
-            transition: var(--transition);
-            border-bottom: 3px solid transparent;
-        }
-
-        .interface-tab.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
-        }
-
-        .interface-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .interface-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .interface-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .interface-image {
-            background-color: #f5f7fa;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 24px;
-        }
-
-        .interface-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .interface-details {
-            padding: 20px;
-        }
-
-        .interface-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .interface-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .interface-features {
-            list-style: none;
-        }
-
-        .interface-feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .interface-feature i {
-            color: var(--accent-color);
-            margin-left: 10px;
-        }
-
-        .properties-section {
-            margin-bottom: 60px;
-        }
-
-        .properties-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .properties-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .properties-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .property-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .property-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .property-image {
-            height: 200px;
-            background-color: #f5f7fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 24px;
-        }
-
-        .property-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .property-content {
-            padding: 20px;
-        }
-
-        .property-type {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-bottom: 10px;
-        }
-
-        .property-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .property-location {
-            display: flex;
-            align-items: center;
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .property-location i {
-            margin-left: 5px;
-            color: var(--accent-color);
-        }
-
-        .property-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .property-detail {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .property-detail-value {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .property-detail-label {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .property-price {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .property-broker {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-        }
-
-        .property-broker-avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            margin-left: 10px;
-            font-size: 12px;
-        }
-
-        .property-broker-name {
-            color: #666;
-        }
-
-        .early-access-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 60px 40px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .early-access-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .early-access-description {
-            font-size: 16px;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .early-access-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .early-access-benefit {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .early-access-benefit:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .early-access-benefit i {
-            font-size: 30px;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-        }
-
-        .early-access-benefit-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .early-access-benefit-description {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .founder-section {
-            margin-bottom: 60px;
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .founder-header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .founder-header h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .founder-header p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .founder-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            padding: 30px;
-        }
-
-        .founder-image {
-            text-align: center;
-        }
-
-        .founder-image img {
-            width: 100%;
-            max-width: 250px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .founder-bio {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .founder-name {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .founder-title {
-            font-size: 16px;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .founder-description {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        .founder-contact {
-            margin-top: auto;
-        }
-
-        .founder-contact a {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .founder-contact a:hover {
-            color: var(--accent-color);
-        }
-
-        .founder-contact a i {
-            margin-left: 10px;
-            width: 30px;
-            height: 30px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .cta-section {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .cta-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .cta-description {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        footer {
-            margin-top: auto;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 40px 0 20px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-column {
-            margin-bottom: 20px;
-        }
-
-        .footer-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-link {
-            margin-bottom: 10px;
-        }
-
-        .footer-link a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .footer-link a:hover {
-            opacity: 1;
-            padding-right: 5px;
-        }
-
-        .footer-contact {
-            list-style: none;
-        }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-
-        .footer-contact-item i {
-            margin-left: 10px;
-            color: var(--accent-color);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .footer-social a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 20px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-bottom p {
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        /* تحسينات للأجهزة المحمولة */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-
-            nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 5px 10px;
-            }
-
-            .hero-title {
-                font-size: 28px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .interface-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .founder-content {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-
-        /* تأثيرات حركية */
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease;
-        }
-
-        .animate-slide-up {
-            animation: slideUp 0.5s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* تحسينات للتحميل */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--light-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(30, 95, 116, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        /* زر إضافة عرض/طلب */
-        .add-property-btn {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 100;
-        }
-
-        .add-property-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-        }
-
-        .add-property-tooltip {
-            position: absolute;
-            bottom: 70px;
-            left: 0;
-            background-color: white;
-            color: var(--primary-color);
-            padding: 8px 15px;
-            border-radius: var(--border-radius);
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: var(--shadow);
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .add-property-btn:hover .add-property-tooltip {
-            opacity: 1;
-            visibility: visible;
-            bottom: 75px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة وسّط للوساطة العقارية</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+    <link rel="stylesheet" href="css/responsive_navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="page-loading">
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
+<body>
+    <!-- القائمة الرئيسية المتجاوبة الجديدة -->
+    <nav class="responsive-navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="images/wasset-logo.png" alt="شعار منصة وسّط">
+                </a>
+            </div>
+            
+            <button class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="broker-dashboard.html">لوحة الوسيط</a></li>
+                <li><a href="smart-offers.html">العروض الذكية</a></li>
+                <li><a href="property-request.html">طلب عقاري</a></li>
+                <li><a href="early-adopter.html">برنامج الانتشار المبكر</a></li>
+                <li><a href="vision.html">رؤيتنا</a></li>
+                <li><a href="articles.html">المقالات</a></li>
+            </ul>
+            
+            <div class="navbar-actions">
+                <button class="navbar-action-btn" id="search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="navbar-action-btn" id="chatbot-toggle">
+                    <i class="fas fa-robot"></i>
+                </button>
+                <a href="login.html" class="login-btn">تسجيل الدخول</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- القائمة المنسدلة للشاشات الصغيرة -->
+    <div class="navbar-dropdown" id="navbar-dropdown">
+        <ul class="navbar-dropdown-menu">
+            <li><a href="index.html" class="active">الرئيسية</a></li>
+            <li><a href="broker-dashboard.html">لوحة الوسيط</a></li>
+            <li><a href="smart-offers.html">العروض الذكية</a></li>
+            <li><a href="property-request.html">طلب عقاري</a></li>
+            <li><a href="early-adopter.html">برنامج الانتشار المبكر</a></li>
+            <li><a href="vision.html">رؤيتنا</a></li>
+            <li><a href="articles.html">المقالات</a></li>
+        </ul>
     </div>
 
-    <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">🏢 وسّط</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="ai-assistant.html">المساعد الذكي</a></li>
-                    <li><a href="articles.html">المقالات</a></li>
-                    <li><a href="vision.html">رؤية المملكة</a></li>
-                    <li><a href="#">تواصل معنا</a></li>
-                </ul>
-            </nav>
-            <div class="user-menu">
-                <div class="user-avatar" id="user-avatar">و</div>
-                <div class="user-info">
-                    <div class="user-name" id="user-name">وسيط عقاري</div>
-                    <div class="user-role" id="user-role">وسيط مرخص</div>
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+        <!-- قسم الترحيب -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>العقار لا يتحرك إلا بوسيط محترف</h1>
+                    <p>منصة وسّط هي المنصة الأولى المتخصصة للوسطاء العقاريين المرخصين في المملكة العربية السعودية</p>
+                    <div class="hero-buttons">
+                        <a href="broker-dashboard.html" class="btn primary-btn">ابدأ كوسيط عقاري</a>
+                        <a href="property-request.html" class="btn secondary-btn">ابحث عن عقار</a>
+                    </div>
                 </div>
-                <div class="dropdown">
-                    <i class="fas fa-chevron-down" style="color: white; margin-right: 10px; cursor: pointer;"></i>
-                    <div class="dropdown-content">
-                        <a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a>
-                        <a href="#"><i class="fas fa-cog"></i> الإعدادات</a>
-                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+                <div class="hero-image">
+                    <img src="images/hero-image.png" alt="صورة توضيحية للوساطة العقارية">
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الإحصائيات -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="stat-number">44,328+</div>
+                        <div class="stat-title">وسيط عقاري مرخص</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stat-number">128,745+</div>
+                        <div class="stat-title">عقار مسجل</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="stat-number">5,842+</div>
+                        <div class="stat-title">صفقة مكتملة</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number">32,156+</div>
+                        <div class="stat-title">عميل مسجل</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">منصة وسّط للوسطاء العقاريين المرخصين</h1>
-            <p class="hero-subtitle">منصة متخصصة للوسطاء العقاريين المرخصين في المملكة العربية السعودية، تهدف إلى تنظيم سوق الوساطة العقارية وتعزيز الثقة بين جميع الأطراف المعنية.</p>
-            <div class="hero-buttons">
-                <a href="add_property.html" class="btn btn-accent">إضافة عرض عقاري</a>
-                <a href="add_property.html" class="btn btn-outline">إضافة طلب عقاري</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
+        <!-- قسم المميزات -->
         <section class="features-section">
-            <h2 class="section-title">ركائز منصة وسّط</h2>
-            <p class="section-subtitle">تقوم منصة وسّط على مجموعة من الركائز الأساسية التي تضمن تقديم خدمة متميزة للوسطاء العقاريين المرخصين والمستثمرين والعملاء.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card animate-fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="feature-title">الاعتمادية والثقة</h3>
-                    <p class="feature-description">منصة متخصصة للوسطاء المعتمدين فقط، مما يضمن مستوى عالٍ من الاحترافية والثقة في جميع التعاملات.</p>
+            <div class="container">
+                <div class="section-header">
+                    <h2>مميزات منصة وسّط</h2>
+                    <p>تقدم منصة وسّط مجموعة من المميزات الفريدة التي تساعد الوسطاء العقاريين على تحقيق النجاح</p>
                 </div>
-                
-                <div class="feature-card animate-fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="feature-title">تسهيل التواصل</h3>
-                    <p class="feature-description">توفير بيئة تفاعلية تسهل التواصل بين الوسطاء والمالكين والعملاء، مما يسرع من إتمام الصفقات العقارية.</p>
-                </div>
-                
-                <div class="feature-card animate-fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="feature-title">الذكاء الاصطناعي</h3>
-                    <p class="feature-description">توظيف تقنيات الذكاء الاصطناعي لتحليل السوق العقاري وتقديم توصيات ذكية تساعد في اتخاذ القرارات المناسبة.</p>
-                </div>
-                
-                <div class="feature-card animate-fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="feature-title">تحليل البيانات</h3>
-                    <p class="feature-description">توفير تحليلات دقيقة لبيانات السوق العقاري، مما يساعد الوسطاء على فهم اتجاهات السوق واتخاذ قرارات مدروسة.</p>
-                </div>
-                
-                <div class="feature-card animate-fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3 class="feature-title">توثيق المعاملات</h3>
-                    <p class="feature-description">توثيق جميع المعاملات العقارية بطريقة آمنة وشفافة، مما يضمن حقوق جميع الأطراف المعنية.</p>
-                </div>
-                
-                <div class="feature-card animate-fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="feature-title">التطوير المهني</h3>
-                    <p class="feature-description">توفير فرص للتعلم والتطوير المهني للوسطاء العقاريين، من خلال المقالات والندوات والدورات التدريبية.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="interfaces-section">
-            <h2 class="section-title">واجهات المنصة</h2>
-            <p class="section-subtitle">توفر منصة وسّط ثلاث واجهات مختلفة تلبي احتياجات جميع الأطراف المعنية في سوق العقارات.</p>
-            
-            <div class="interfaces-tabs">
-                <div class="interface-tab active" data-tab="broker">واجهة الوسيط</div>
-                <div class="interface-tab" data-tab="owner">واجهة المالك</div>
-                <div class="interface-tab" data-tab="client">واجهة العميل</div>
-            </div>
-            
-            <div class="interface-content active" id="broker-interface">
-                <div class="interface-grid">
-                    <div class="interface-image">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="interface-details">
-                        <h3 class="interface-title">واجهة الوسيط</h3>
-                        <p class="interface-description">واجهة متكاملة للوسطاء العقاريين المرخصين، توفر جميع الأدوات والميزات التي يحتاجونها لإدارة أعمالهم بكفاءة وفعالية.</p>
-                        <ul class="interface-features">
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> إضافة وإدارة العروض والطلبات العقارية</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> التواصل المباشر مع المالكين والعملاء</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> الوصول إلى تحليلات السوق والتقارير</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> إدارة المعاملات وتوثيق الصفقات</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> الاستفادة من توصيات الذكاء الاصطناعي</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="interface-content" id="owner-interface">
-                <div class="interface-grid">
-                    <div class="interface-image">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="interface-details">
-                        <h3 class="interface-title">واجهة المالك</h3>
-                        <p class="interface-description">واجهة مخصصة لمالكي العقارات، تمكنهم من عرض عقاراتهم والتواصل مع الوسطاء المرخصين بكل سهولة.</p>
-                        <ul class="interface-features">
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> إضافة وإدارة العقارات المملوكة</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> اختيار الوسطاء المناسبين للتعامل</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> متابعة حالة العقارات والعروض</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> الاطلاع على تقييمات وسجل الوسطاء</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> توثيق عقود البيع والإيجار</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="interface-content" id="client-interface">
-                <div class="interface-grid">
-                    <div class="interface-image">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="interface-details">
-                        <h3 class="interface-title">واجهة العميل</h3>
-                        <p class="interface-description">واجهة سهلة الاستخدام للعملاء الباحثين عن عقارات، تمكنهم من استعراض العروض والتواصل مع الوسطاء المرخصين.</p>
-                        <ul class="interface-features">
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> البحث المتقدم عن العقارات</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> التواصل المباشر مع الوسطاء المرخصين</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> إضافة طلبات عقارية محددة</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> حفظ العقارات المفضلة ومقارنتها</li>
-                            <li class="interface-feature"><i class="fas fa-check-circle"></i> الاطلاع على تقييمات الوسطاء وسجلهم</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="properties-section">
-            <div class="properties-header">
-                <h2 class="properties-title">عقارات مضافة حديثاً</h2>
-                <a href="add_property.html" class="btn">إضافة عقار</a>
-            </div>
-            
-            <div class="properties-grid" id="properties-container">
-                <!-- سيتم إضافة العقارات ديناميكياً هنا -->
-            </div>
-        </section>
-        
-        <section class="early-access-section">
-            <h2 class="early-access-title">انشر وسّط... وكن من الروّاد</h2>
-            <p class="early-access-description">برنامج الانتشار المبكر يتيح للوسطاء العقاريين المرخصين فرصة الانضمام إلى منصة وسّط في مراحلها الأولى والاستفادة من مزايا حصرية.</p>
-            
-            <div class="early-access-benefits">
-                <div class="early-access-benefit">
-                    <i class="fas fa-star"></i>
-                    <h3 class="early-access-benefit-title">عضوية مميزة</h3>
-                    <p class="early-access-benefit-description">الحصول على عضوية مميزة دائمة في المنصة مع شارة "وسيط رائد".</p>
-                </div>
-                
-                <div class="early-access-benefit">
-                    <i class="fas fa-percentage"></i>
-                    <h3 class="early-access-benefit-title">خصومات حصرية</h3>
-                    <p class="early-access-benefit-description">الاستفادة من خصومات حصرية على جميع خدمات المنصة المدفوعة.</p>
-                </div>
-                
-                <div class="early-access-benefit">
-                    <i class="fas fa-bullhorn"></i>
-                    <h3 class="early-access-benefit-title">أولوية الظهور</h3>
-                    <p class="early-access-benefit-description">أولوية الظهور في نتائج البحث وقوائم الوسطاء الموصى بهم.</p>
-                </div>
-            </div>
-            
-            <a href="https://wa.me/966534394757" class="btn btn-accent" target="_blank">
-                <i class="fab fa-whatsapp"></i> تواصل معنا للانضمام
-            </a>
-        </section>
-        
-        <section class="founder-section">
-            <div class="founder-header">
-                <h2>عن المؤسس</h2>
-                <p>المؤسس الأول لمجتمعات الوسطاء العقاريين الاحترافية في المملكة</p>
-            </div>
-            
-            <div class="founder-content">
-                <div class="founder-image">
-                    <img src="founder.jpg" alt="علي الشهري - مؤسس منصة وسّط" id="founder-image">
-                </div>
-                
-                <div class="founder-bio">
-                    <h3 class="founder-name">علي الشهري</h3>
-                    <div class="founder-title">المؤسس الأول لمجتمعات الوسطاء العقاريين الاحترافية في المملكة</div>
-                    
-                    <div class="founder-description">
-                        <p>عضو اللجنة العقارية بالغرفة التجارية، ورائد في تطوير المنصات الرقمية العقارية وتفعيل دور الذكاء الاصطناعي في خدمة السوق العقاري.</p>
-                    </div>
-                    
-                    <div class="founder-contact">
-                        <a href="founder.html">
-                            <i class="fas fa-user"></i> تعرف على المؤسس
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="cta-section">
-            <h2 class="cta-title">انضم إلى منصة وسّط اليوم</h2>
-            <p class="cta-description">كن جزءاً من مجتمع الوسطاء العقاريين المرخصين واستفد من جميع المميزات التي توفرها منصة وسّط لتطوير أعمالك وزيادة فرص نجاحك.</p>
-            
-            <div class="cta-buttons">
-                <a href="https://wa.me/966534394757" class="btn btn-accent" target="_blank">
-                    <i class="fab fa-whatsapp"></i> تواصل معنا للتسجيل
-                </a>
-                <a href="ai-assistant.html" class="btn">
-                    <i class="fas fa-robot"></i> تحدث مع المساعد الذكي
-                </a>
-            </div>
-        </section>
-    </div>
-
-    <a href="add_property.html" class="add-property-btn">
-        <i class="fas fa-plus"></i>
-        <span class="add-property-tooltip">إضافة عرض/طلب</span>
-    </a>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3 class="footer-title">منصة وسّط</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><a href="index.html">الرئيسية</a></li>
-                    <li class="footer-link"><a href="ai-assistant.html">المساعد الذكي</a></li>
-                    <li class="footer-link"><a href="articles.html">المقالات</a></li>
-                    <li class="footer-link"><a href="vision.html">رؤية المملكة</a></li>
-                    <li class="footer-link"><a href="founder.html">عن المؤسس</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3 class="footer-title">الخدمات</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><a href="add_property.html">إضافة عرض عقاري</a></li>
-                    <li class="footer-link"><a href="add_property.html">إضافة طلب عقاري</a></li>
-                    <li class="footer-link"><a href="#">البحث عن عقارات</a></li>
-                    <li class="footer-link"><a href="#">التواصل مع الوسطاء</a></li>
-                    <li class="footer-link"><a href="#">توثيق المعاملات</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3 class="footer-title">تواصل معنا</h3>
-                <ul class="footer-contact">
-                    <li class="footer-contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        +966 53 439 4757
-                    </li>
-                    <li class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        info@wasset.sa
-                    </li>
-                    <li class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        المملكة العربية السعودية
-                    </li>
-                </ul>
-                
-                <div class="footer-social">
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
-        </div>
-    </footer>
-
-    <script src="performance_optimizations.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // إزالة مؤشر التحميل
-            const loadingOverlay = document.querySelector('.loading-overlay');
-            setTimeout(() => {
-                loadingOverlay.classList.add('hidden');
-                document.body.classList.remove('page-loading');
-            }, 500);
-
-            // التحقق من حالة تسجيل الدخول
-            const isLoggedIn = localStorage.getItem('wasset_logged_in') === 'true';
-            if (!isLoggedIn) {
-                window.location.href = 'login.html';
-                return;
-            }
-
-            // الحصول على بيانات الوسيط من التخزين المحلي
-            const brokerData = JSON.parse(localStorage.getItem('wasset_broker_data') || '{}');
-            const userPhone = localStorage.getItem('wasset_phone');
-            const userType = localStorage.getItem('wasset_user_type');
-
-            // تحديث معلومات المستخدم في الرأس
-            updateUserInfo(brokerData, userPhone, userType);
-
-            // تسجيل الخروج
-            const logoutBtn = document.getElementById('logout-btn');
-            logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('wasset_logged_in');
-                localStorage.removeItem('wasset_user_type');
-                localStorage.removeItem('wasset_phone');
-                localStorage.removeItem('wasset_broker_data');
-                window.location.href = 'login.html';
-            });
-
-            // تبديل واجهات المنصة
-            const interfaceTabs = document.querySelectorAll('.interface-tab');
-            interfaceTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // إزالة الفئة النشطة من جميع علامات التبويب
-                    interfaceTabs.forEach(t => t.classList.remove('active'));
-                    // إضافة الفئة النشطة للعلامة المحددة
-                    this.classList.add('active');
-                    
-                    // إخفاء جميع المحتويات
-                    const interfaceContents = document.querySelectorAll('.interface-content');
-                    interfaceContents.forEach(content => content.classList.remove('active'));
-                    
-                    // إظهار المحتوى المناسب
-                    const tabId = this.getAttribute('data-tab');
-                    document.getElementById(`${tabId}-interface`).classList.add('active');
-                });
-            });
-
-            // تحميل صورة المؤسس
-            loadFounderImage();
-
-            // تحميل العقارات المضافة حديثاً
-            loadProperties();
-        });
-
-        // تحديث معلومات المستخدم في الرأس
-        function updateUserInfo(brokerData, userPhone, userType) {
-            const userName = document.getElementById('user-name');
-            const userRole = document.getElementById('user-role');
-            const userAvatar = document.getElementById('user-avatar');
-            
-            // تحديث الاسم
-            if (brokerData['اسم الوسيط']) {
-                userName.textContent = brokerData['اسم الوسيط'];
-            } else {
-                userName.textContent = userPhone;
-            }
-            
-            // تحديث نوع المستخدم
-            if (brokerData['نوع الوسيط']) {
-                userRole.textContent = brokerData['نوع الوسيط'];
-            } else {
-                userRole.textContent = userType === 'individual' ? 'وسيط فرد' : 'منشأة عقارية';
-            }
-            
-            // تحديث الصورة الرمزية
-            if (brokerData['اسم الوسيط']) {
-                userAvatar.textContent = brokerData['اسم الوسيط'].charAt(0);
-            } else {
-                userAvatar.textContent = userPhone.charAt(userPhone.length - 1);
-            }
-        }
-
-        // تحميل صورة المؤسس
-        function loadFounderImage() {
-            const founderImage = document.getElementById('founder-image');
-            
-            // التحقق من وجود الصورة
-            const img = new Image();
-            img.onload = function() {
-                // الصورة موجودة، لا حاجة لفعل أي شيء
-            };
-            img.onerror = function() {
-                // الصورة غير موجودة، استخدام صورة افتراضية
-                founderImage.src = 'https://via.placeholder.com/250x300?text=علي+الشهري';
-            };
-            img.src = founderImage.src;
-        }
-
-        // تحميل العقارات المضافة حديثاً
-        function loadProperties() {
-            const propertiesContainer = document.getElementById('properties-container');
-            
-            // الحصول على العقارات المحفوظة
-            const savedProperties = JSON.parse(localStorage.getItem('wasset_properties') || '[]');
-            
-            // إذا لم تكن هناك عقارات محفوظة، إضافة عقارات افتراضية
-            if (savedProperties.length === 0) {
-                // إضافة عقارات افتراضية
-                const defaultProperties = [
-                    {
-                        type: 'offer',
-                        propertyType: 'apartment',
-                        city: 'الرياض',
-                        district: 'حي النرجس',
-                        area: '120',
-                        price: '500000',
-                        title: 'شقة فاخرة للبيع في حي النرجس',
-                        description: 'شقة فاخرة مكونة من 3 غرف نوم وصالة ومطبخ و2 حمام، مؤثثة بالكامل وجاهزة للسكن.',
-                        features: ['مكيف', 'مسبح', 'موقف سيارات', 'مصعد'],
-                        contactName: 'أحمد محمد',
-                        contactPhone: '0512345678',
-                        date: new Date().toISOString()
-                    },
-                    {
-                        type: 'offer',
-                        propertyType: 'villa',
-                        city: 'جدة',
-                        district: 'حي الشاطئ',
-                        area: '350',
-                        price: '2500000',
-                        title: 'فيلا فاخرة للبيع في حي الشاطئ',
-                        description: 'فيلا فاخرة مكونة من دورين، 5 غرف نوم، مجلس، صالة، مطبخ، 4 حمامات، حديقة خارجية، ومسبح.',
-                        features: ['مكيف', 'مسبح', 'حديقة', 'موقف سيارات'],
-                        contactName: 'محمد علي',
-                        contactPhone: '0523456789',
-                        date: new Date().toISOString()
-                    },
-                    {
-                        type: 'request',
-                        propertyType: 'land',
-                        city: 'الدمام',
-                        district: '',
-                        area: '500',
-                        price: '',
-                        title: 'مطلوب أرض سكنية في الدمام',
-                        description: 'مطلوب أرض سكنية في الدمام، مساحة لا تقل عن 500 متر مربع، في حي راقي وقريبة من الخدمات.',
-                        features: [],
-                        contactName: 'خالد عبدالله',
-                        contactPhone: '0534567890',
-                        date: new Date().toISOString()
-                    }
-                ];
-                
-                // حفظ العقارات الافتراضية
-                localStorage.setItem('wasset_properties', JSON.stringify(defaultProperties));
-                
-                // استخدام العقارات الافتراضية
-                displayProperties(defaultProperties);
-            } else {
-                // استخدام العقارات المحفوظة
-                displayProperties(savedProperties);
-            }
-        }
-
-        // عرض العقارات
-        function displayProperties(properties) {
-            const propertiesContainer = document.getElementById('properties-container');
-            
-            // ترتيب العقارات حسب التاريخ (الأحدث أولاً)
-            properties.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // الحد الأقصى للعقارات المعروضة
-            const maxProperties = 6;
-            const propertiesToShow = properties.slice(0, maxProperties);
-            
-            // إضافة العقارات إلى الصفحة
-            propertiesToShow.forEach(property => {
-                const propertyCard = document.createElement('div');
-                propertyCard.className = 'property-card animate-fade-in';
-                
-                // تحديد نوع العقار بالعربية
-                let propertyTypeArabic = '';
-                switch (property.propertyType) {
-                    case 'apartment': propertyTypeArabic = 'شقة'; break;
-                    case 'villa': propertyTypeArabic = 'فيلا'; break;
-                    case 'land': propertyTypeArabic = 'أرض'; break;
-                    case 'commercial': propertyTypeArabic = 'عقار تجاري'; break;
-                    case 'farm': propertyTypeArabic = 'مزرعة'; break;
-                    case 'chalet': propertyTypeArabic = 'استراحة'; break;
-                    default: propertyTypeArabic = 'عقار';
-                }
-                
-                // تحديد نوع العملية (عرض أو طلب)
-                const operationType = property.type === 'offer' ? 'عرض' : 'طلب';
-                
-                propertyCard.innerHTML = `
-                    <div class="property-image">
-                        <i class="fas fa-${property.propertyType === 'land' ? 'map' : property.propertyType === 'commercial' ? 'building' : 'home'}"></i>
-                    </div>
-                    <div class="property-content">
-                        <div class="property-type">${operationType} ${propertyTypeArabic}</div>
-                        <h3 class="property-title">${property.title}</h3>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            ${property.city}${property.district ? ' - ' + property.district : ''}
+                <div class="features-container">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <div class="property-details">
-                            <div class="property-detail">
-                                <div class="property-detail-value">${property.area} م²</div>
-                                <div class="property-detail-label">المساحة</div>
-                            </div>
-                            ${property.features && property.features.length > 0 ? `
-                            <div class="property-detail">
-                                <div class="property-detail-value">${property.features.length}</div>
-                                <div class="property-detail-label">مميزات</div>
-                            </div>
-                            ` : ''}
-                            <div class="property-detail">
-                                <div class="property-detail-value">${formatDate(property.date)}</div>
-                                <div class="property-detail-label">التاريخ</div>
-                            </div>
+                        <h3>الذكاء الاصطناعي</h3>
+                        <p>استفد من تقنيات الذكاء الاصطناعي لتحليل بيانات السوق وتقديم توصيات ذكية تساعدك على اتخاذ قرارات أفضل</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
                         </div>
-                        ${property.price ? `
-                        <div class="property-price">${formatPrice(property.price)} ريال</div>
-                        ` : ''}
-                        <div class="property-broker">
-                            <div class="property-broker-avatar">${property.contactName.charAt(0)}</div>
-                            <div class="property-broker-name">${property.contactName}</div>
+                        <h3>تنبيهات فورية</h3>
+                        <p>احصل على تنبيهات فورية عند توفر عقارات تطابق معايير بحثك أو عند وجود طلبات جديدة من العملاء</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>تحليلات متقدمة</h3>
+                        <p>استفد من التحليلات المتقدمة لفهم اتجاهات السوق وتحديد أفضل الفرص الاستثمارية في مختلف المناطق</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>حماية العمولة</h3>
+                        <p>نظام متكامل لحماية عمولة الوسيط وضمان حقوقه من خلال توثيق جميع التعاملات والاتفاقيات</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>تطبيق جوال</h3>
+                        <p>تطبيق جوال متكامل يتيح لك إدارة أعمالك من أي مكان والتواصل مع العملاء بسهولة وسرعة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>توثيق رسمي</h3>
+                        <p>توثيق رسمي لجميع العقارات والصفقات بالتعاون مع الجهات الحكومية المختصة لضمان المصداقية والشفافية</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم كيف يعمل -->
+        <section class="how-it-works-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>كيف تعمل منصة وسّط؟</h2>
+                    <p>خطوات بسيطة تمكنك من الاستفادة من جميع مميزات المنصة</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>سجل كوسيط عقاري</h3>
+                            <p>قم بالتسجيل في المنصة وتوثيق حسابك باستخدام رخصة الوساطة العقارية الخاصة بك</p>
                         </div>
                     </div>
-                `;
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>أضف عقاراتك</h3>
+                            <p>أضف العقارات التي تتعامل معها مع جميع التفاصيل والصور والمستندات اللازمة</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>حدد معايير البحث</h3>
+                            <p>حدد معايير البحث الخاصة بك للحصول على تنبيهات بالعقارات والطلبات التي تناسب اهتماماتك</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>تواصل مع العملاء</h3>
+                            <p>تواصل مع العملاء المهتمين بعقاراتك وتابع الطلبات الجديدة من خلال لوحة التحكم</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>أتمم الصفقات</h3>
+                            <p>أتمم الصفقات بكل سهولة وأمان مع توثيق كامل للعمولة وحفظ حقوقك</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الانضمام المبكر -->
+        <section class="early-adopter-section">
+            <div class="container">
+                <div class="early-adopter-content">
+                    <h2>انشر وسّط... وكن من الروّاد</h2>
+                    <p>انضم إلى برنامج الانتشار المبكر واحصل على مزايا حصرية تساعدك على تنمية أعمالك وزيادة أرباحك</p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> عمولات إضافية على كل صفقة</li>
+                        <li><i class="fas fa-check-circle"></i> أولوية في العروض والطلبات</li>
+                        <li><i class="fas fa-check-circle"></i> ظهور متميز في نتائج البحث</li>
+                        <li><i class="fas fa-check-circle"></i> دعم تسويقي خاص</li>
+                        <li><i class="fas fa-check-circle"></i> تدريب احترافي مجاني</li>
+                    </ul>
+                    <a href="early-adopter.html" class="btn primary-btn">انضم الآن</a>
+                </div>
+                <div class="early-adopter-image">
+                    <img src="images/early-adopter.png" alt="برنامج الانتشار المبكر">
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الشهادات -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>ماذا يقول الوسطاء عن منصة وسّط؟</h2>
+                    <p>آراء وتجارب الوسطاء العقاريين الذين استفادوا من خدمات المنصة</p>
+                </div>
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"منصة وسّط غيرت طريقة عملي كوسيط عقاري. أصبحت أحصل على عملاء أكثر وأتمم صفقات بشكل أسرع. الميزات الذكية في المنصة توفر لي الكثير من الوقت والجهد."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-1.jpg" alt="صورة الوسيط">
+                            <div class="author-info">
+                                <h4>أحمد محمد</h4>
+                                <p>وسيط عقاري - الرياض</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"نظام حماية العمولة في منصة وسّط هو أفضل ما يميزها. لم أعد أقلق بشأن ضياع حقوقي كوسيط. كما أن التنبيهات الفورية تساعدني على الاستجابة السريعة للفرص الجديدة."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-2.jpg" alt="صورة الوسيط">
+                            <div class="author-info">
+                                <h4>سارة عبدالله</h4>
+                                <p>وسيط عقاري - جدة</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"التحليلات المتقدمة في منصة وسّط ساعدتني على فهم اتجاهات السوق بشكل أفضل واتخاذ قرارات استثمارية ذكية. أنصح جميع الوسطاء العقاريين بالانضمام إلى هذه المنصة الرائعة."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="images/testimonial-3.jpg" alt="صورة الوسيط">
+                            <div class="author-info">
+                                <h4>خالد سعد</h4>
+                                <p>وسيط عقاري - الدمام</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الاتصال -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>تواصل معنا</h2>
+                        <p>نحن هنا للإجابة على جميع استفساراتك ومساعدتك في الاستفادة القصوى من منصة وسّط</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <p>+966 53 439 4757</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <p>info@wasset.com</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>الرياض، المملكة العربية السعودية</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>أرسل رسالة</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="الاسم الكامل" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="البريد الإلكتروني" required>
+                            </div>
                 
-                propertiesContainer.appendChild(propertyCard);
-            });
-        }
-
-        // تنسيق التاريخ
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('ar-SA', { year: 'numeric', month: 'short', day: 'numeric' });
-        }
-
-        // تنسيق السعر
-        function formatPrice(price) {
-            return parseInt(price).toLocaleString('ar-SA');
-        }
-    </script>
-</body>
-</html>
+(Content truncated due to size limit. Use line ranges to read in chunks)

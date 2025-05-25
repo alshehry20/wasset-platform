@@ -1,0 +1,580 @@
+/* 
+ * ملف توثيق كود منصة "وسّط" للوساطة العقارية
+ * ===================================
+ * هذا الملف يحتوي على توثيق شامل لكود المنصة بما في ذلك:
+ * - هيكل الملفات
+ * - الألوان والخطوط المستخدمة
+ * - تفاصيل CSS
+ * - تفاصيل JavaScript
+ * - هيكل HTML
+ * - الصفحات الرئيسية والفرعية
+ */
+
+/* ===== 1. هيكل الألوان والخطوط ===== */
+
+/*
+ * الألوان الرئيسية:
+ * --primary-color: #1e5f74 (أزرق داكن مائل للأخضر)
+ * --secondary-color: #133b5c (أزرق داكن)
+ * --accent-color: #ffa62b (برتقالي)
+ * --light-color: #f7f9f9 (أبيض مائل للرمادي الفاتح)
+ * --dark-color: #1d2d50 (كحلي داكن)
+ * --success-color: #2ecc71 (أخضر)
+ * --vision-green: #00833e (أخضر رؤية 2030)
+ *
+ * التدرجات اللونية:
+ * --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%)
+ * --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%)
+ * --vision-gradient: linear-gradient(135deg, #00833e 0%, #006428 100%)
+ *
+ * الخطوط:
+ * الخط الرئيسي: 'Tajawal' (خط عربي حديث)
+ * يتم استيراده من Google Fonts:
+ * @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+ */
+
+/* ===== 2. هيكل ملفات CSS ===== */
+
+/*
+ * main.css: الملف الرئيسي للتنسيقات العامة والمتغيرات
+ * responsive_layout.css: تنسيقات التجاوب مع مختلف الشاشات
+ * responsive_navbar.css: تنسيقات القائمة المتجاوبة
+ * broker_features.css: تنسيقات خاصة بميزات الوسيط
+ */
+
+/* ===== 3. هيكل ملفات JavaScript ===== */
+
+/*
+ * main.js: الوظائف الرئيسية للموقع
+ * notifications.js: نظام التنبيهات الذكي
+ * search-bot.js: نظام البحث والروبوت الذكي
+ * brokers_data.js: معالجة بيانات الوسطاء
+ */
+
+/* ===== 4. هيكل الصفحات ===== */
+
+/*
+ * index.html: الصفحة الرئيسية
+ * broker-dashboard.html: لوحة تحكم الوسيط
+ * smart-offers.html: صفحة العروض العقارية الذكية
+ * property-request.html: نموذج طلب عقاري
+ * property-details.html: صفحة تفاصيل العقار
+ * early-adopter.html: برنامج الانتشار المبكر
+ * vision.html: صفحة الرؤية
+ * articles.html: صفحة المقالات
+ * admin-dashboard.html: لوحة تحكم الإدارة
+ * search.html: صفحة البحث الشامل
+ * login.html: صفحة تسجيل الدخول
+ * profile.html: صفحة الملف الشخصي
+ */
+
+/* ===== 5. تفاصيل كود CSS الرئيسي ===== */
+
+/* متغيرات CSS الأساسية */
+:root {
+    --primary-color: #1e5f74;
+    --secondary-color: #133b5c;
+    --accent-color: #ffa62b;
+    --light-color: #f7f9f9;
+    --dark-color: #1d2d50;
+    --success-color: #2ecc71;
+    --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%);
+    --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --vision-green: #00833e;
+    --vision-gradient: linear-gradient(135deg, #00833e 0%, #006428 100%);
+    --font-family: 'Tajawal', sans-serif;
+}
+
+/* ===== 6. تنسيقات القائمة المتجاوبة ===== */
+
+/* تنسيقات عامة للقائمة */
+.responsive-navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* تنسيقات الشعار */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* تنسيقات القائمة الأفقية للشاشات الكبيرة */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    margin: 0 10px;
+}
+
+.navbar-menu a {
+    color: #0a3d62;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-menu a:hover, .navbar-menu a.active {
+    background-color: rgba(10, 61, 98, 0.1);
+}
+
+/* تنسيقات للشاشات المتوسطة والصغيرة */
+@media (max-width: 992px) {
+    .navbar-menu {
+        display: none;
+    }
+    
+    .navbar-toggle {
+        display: block;
+    }
+    
+    .navbar-dropdown {
+        display: block;
+    }
+}
+
+/* ===== 7. هيكل HTML للصفحة الرئيسية ===== */
+
+/*
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة وسّط للوساطة العقارية</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+    <link rel="stylesheet" href="css/responsive_navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- القائمة الرئيسية المتجاوبة -->
+    <nav class="responsive-navbar">
+        <!-- محتوى القائمة -->
+    </nav>
+    
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+        <!-- قسم الترحيب -->
+        <section class="hero-section">
+            <!-- محتوى قسم الترحيب -->
+        </section>
+
+        <!-- قسم الإحصائيات -->
+        <section class="stats-section">
+            <!-- محتوى قسم الإحصائيات -->
+        </section>
+
+        <!-- قسم المميزات -->
+        <section class="features-section">
+            <!-- محتوى قسم المميزات -->
+        </section>
+
+        <!-- قسم كيف يعمل -->
+        <section class="how-it-works-section">
+            <!-- محتوى قسم كيف يعمل -->
+        </section>
+
+        <!-- قسم الانضمام المبكر -->
+        <section class="early-adopter-section">
+            <!-- محتوى قسم الانضمام المبكر -->
+        </section>
+
+        <!-- قسم الشهادات -->
+        <section class="testimonials-section">
+            <!-- محتوى قسم الشهادات -->
+        </section>
+
+        <!-- قسم الاتصال -->
+        <section class="contact-section">
+            <!-- محتوى قسم الاتصال -->
+        </section>
+    </div>
+
+    <!-- التذييل -->
+    <footer>
+        <!-- محتوى التذييل -->
+    </footer>
+
+    <!-- روبوت المحادثة -->
+    <div id="chatbot-panel" class="chatbot-panel">
+        <!-- محتوى روبوت المحادثة -->
+    </div>
+
+    <!-- سكريبت البحث والروبوت -->
+    <script src="js/search-bot.js"></script>
+    <script>
+        // كود جافاسكريبت للصفحة
+    </script>
+</body>
+</html>
+*/
+
+/* ===== 8. هيكل HTML للوحة تحكم الوسيط ===== */
+
+/*
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- الترويسة -->
+</head>
+<body>
+    <!-- القائمة الرئيسية المتجاوبة -->
+    
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+        <!-- ترويسة لوحة التحكم -->
+        <section class="dashboard-header">
+            <!-- محتوى ترويسة لوحة التحكم -->
+        </section>
+
+        <!-- إحصائيات الوسيط -->
+        <section class="broker-stats">
+            <!-- محتوى إحصائيات الوسيط -->
+        </section>
+
+        <!-- العروض النشطة -->
+        <section class="active-listings">
+            <!-- محتوى العروض النشطة -->
+        </section>
+
+        <!-- الطلبات الواردة -->
+        <section class="incoming-requests">
+            <!-- محتوى الطلبات الواردة -->
+        </section>
+
+        <!-- التنبيهات الذكية -->
+        <section class="smart-alerts">
+            <!-- محتوى التنبيهات الذكية -->
+        </section>
+
+        <!-- الأنشطة الأخيرة -->
+        <section class="recent-activities">
+            <!-- محتوى الأنشطة الأخيرة -->
+        </section>
+    </div>
+
+    <!-- التذييل -->
+    <footer>
+        <!-- محتوى التذييل -->
+    </footer>
+
+    <!-- سكريبت لوحة التحكم -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>
+*/
+
+/* ===== 9. هيكل HTML لصفحة العروض العقارية الذكية ===== */
+
+/*
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- الترويسة -->
+</head>
+<body>
+    <!-- القائمة الرئيسية المتجاوبة -->
+    
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+        <!-- ترويسة الصفحة -->
+        <section class="page-header">
+            <!-- محتوى ترويسة الصفحة -->
+        </section>
+
+        <!-- نموذج البحث المتقدم -->
+        <section class="advanced-search">
+            <!-- محتوى نموذج البحث المتقدم -->
+        </section>
+
+        <!-- نتائج البحث -->
+        <section class="search-results">
+            <!-- محتوى نتائج البحث -->
+        </section>
+
+        <!-- توصيات الذكاء الاصطناعي -->
+        <section class="ai-recommendations">
+            <!-- محتوى توصيات الذكاء الاصطناعي -->
+        </section>
+
+        <!-- التنبيهات اللحظية -->
+        <section class="real-time-alerts">
+            <!-- محتوى التنبيهات اللحظية -->
+        </section>
+    </div>
+
+    <!-- التذييل -->
+    <footer>
+        <!-- محتوى التذييل -->
+    </footer>
+
+    <!-- سكريبت العروض الذكية -->
+    <script src="js/smart-offers.js"></script>
+</body>
+</html>
+*/
+
+/* ===== 10. كود JavaScript لنظام التنبيهات الذكي ===== */
+
+/*
+/**
+ * نظام التنبيهات الذكي لمنصة وسّط
+ * يقوم بمعالجة التنبيهات اللحظية وإشعارات العروض المطابقة
+ */
+
+// تهيئة نظام التنبيهات
+function initNotifications() {
+    // التحقق من دعم المتصفح للإشعارات
+    if (!("Notification" in window)) {
+        console.log("هذا المتصفح لا يدعم الإشعارات");
+        return;
+    }
+
+    // طلب إذن الإشعارات
+    if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+            if (permission === "granted") {
+                console.log("تم منح إذن الإشعارات");
+                setupNotificationSystem();
+            }
+        });
+    } else if (Notification.permission === "granted") {
+        setupNotificationSystem();
+    }
+}
+
+// إعداد نظام الإشعارات
+function setupNotificationSystem() {
+    // إعداد اتصال WebSocket للتنبيهات اللحظية
+    setupWebSocketConnection();
+    
+    // جدولة التحقق من التنبيهات الجديدة
+    setInterval(checkForNewNotifications, 60000); // كل دقيقة
+}
+
+// إعداد اتصال WebSocket
+function setupWebSocketConnection() {
+    // في بيئة الإنتاج، استبدل هذا برابط WebSocket الفعلي
+    const wsUrl = "wss://api.wasset.com/notifications";
+    
+    try {
+        const socket = new WebSocket(wsUrl);
+        
+        socket.onopen = function(e) {
+            console.log("تم فتح اتصال WebSocket");
+            
+            // إرسال معرف المستخدم للحصول على التنبيهات الخاصة به
+            if (currentUser && currentUser.id) {
+                socket.send(JSON.stringify({
+                    type: "auth",
+                    userId: currentUser.id
+                }));
+            }
+        };
+        
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            handleNotification(data);
+        };
+        
+        socket.onclose = function(event) {
+            if (event.wasClean) {
+                console.log(`تم إغلاق الاتصال بنظافة، الكود: ${event.code}, السبب: ${event.reason}`);
+            } else {
+                console.log('تم قطع الاتصال');
+                // محاولة إعادة الاتصال بعد 5 ثوانٍ
+                setTimeout(setupWebSocketConnection, 5000);
+            }
+        };
+        
+        socket.onerror = function(error) {
+            console.log(`خطأ في WebSocket: ${error.message}`);
+        };
+        
+        // تخزين مرجع الاتصال للاستخدام لاحقًا
+        window.notificationSocket = socket;
+        
+    } catch (error) {
+        console.error("فشل في إنشاء اتصال WebSocket:", error);
+    }
+}
+
+// التحقق من التنبيهات الجديدة
+function checkForNewNotifications() {
+    // في بيئة الإنتاج، استبدل هذا بطلب API فعلي
+    fetch('/api/notifications/check')
+        .then(response => response.json())
+        .then(data => {
+            if (data.hasNew) {
+                data.notifications.forEach(notification => {
+                    handleNotification(notification);
+                });
+            }
+        })
+        .catch(error => {
+            console.error("خطأ في التحقق من التنبيهات:", error);
+        });
+}
+
+// معالجة التنبيه
+function handleNotification(notification) {
+    // عرض التنبيه في واجهة المستخدم
+    displayNotificationInUI(notification);
+    
+    // إرسال إشعار للمتصفح إذا كان التطبيق في الخلفية
+    if (document.hidden && Notification.permission === "granted") {
+        const title = notification.title || "تنبيه جديد من وسّط";
+        const options = {
+            body: notification.message,
+            icon: "/images/logo-notification.png",
+            badge: "/images/badge.png",
+            data: notification
+        };
+        
+        const browserNotification = new Notification(title, options);
+        
+        browserNotification.onclick = function() {
+            window.focus();
+            navigateToNotificationTarget(notification);
+            this.close();
+        };
+    }
+    
+    // تشغيل صوت التنبيه إذا كان مفعلاً
+    if (userPreferences.soundEnabled) {
+        playNotificationSound();
+    }
+}
+
+// عرض التنبيه في واجهة المستخدم
+function displayNotificationInUI(notification) {
+    const notificationsContainer = document.getElementById('notifications-container');
+    if (!notificationsContainer) return;
+    
+    const notificationElement = document.createElement('div');
+    notificationElement.className = `notification-item ${notification.type}`;
+    notificationElement.dataset.id = notification.id;
+    
+    // تحديد أيقونة التنبيه بناءً على نوعه
+    let icon = '';
+    switch(notification.type) {
+        case 'property-match':
+            icon = '<i class="fas fa-home"></i>';
+            break;
+        case 'request-match':
+            icon = '<i class="fas fa-search"></i>';
+            break;
+        case 'offer':
+            icon = '<i class="fas fa-tag"></i>';
+            break;
+        case 'message':
+            icon = '<i class="fas fa-envelope"></i>';
+            break;
+        case 'system':
+            icon = '<i class="fas fa-bell"></i>';
+            break;
+        default:
+            icon = '<i class="fas fa-bell"></i>';
+    }
+    
+    // بناء محتوى التنبيه
+    notificationElement.innerHTML = `
+        <div class="notification-icon">${icon}</div>
+        <div class="notification-content">
+            <div class="notification-title">${notification.title}</div>
+            <div class="notification-message">${notification.message}</div>
+            <div class="notification-time">${formatNotificationTime(notification.timestamp)}</div>
+        </div>
+        <div class="notification-actions">
+            <button class="notification-action view" onclick="viewNotification('${notification.id}')">
+                <i class="fas fa-eye"></i>
+            </button>
+            <button class="notification-action mark-read" onclick="markNotificationAsRead('${notification.id}')">
+                <i class="fas fa-check"></i>
+            </button>
+        </div>
+    `;
+    
+    // إضافة التنبيه إلى القائمة
+    notificationsContainer.prepend(notificationElement);
+    
+    // تحديث عداد التنبيهات
+    updateNotificationCounter();
+    
+    // إضافة تأثير ظهور التنبيه
+    setTimeout(() => {
+        notificationElement.classList.add('show');
+    }, 10);
+    
+    // إزالة التنبيه بعد فترة (للتنبيهات المؤقتة)
+    if (notification.temporary) {
+        setTimeout(() => {
+            notificationElement.classList.remove('show');
+            setTimeout(() => {
+                notificationElement.remove();
+                updateNotificationCounter();
+            }, 300);
+        }, 5000);
+    }
+}
+
+// تنسيق وقت التنبيه
+function formatNotificationTime(timestamp) {
+    const now = new Date();
+    const notificationTime = new Date(timestamp);
+    const diffMs = now - notificationTime;
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMins / 60);
+    const diffDays = Math.floor(diffHours / 24);
+    
+    if (diffMins < 1) {
+        return 'الآن';
+    } else if (diffMins < 60) {
+        return `منذ ${diffMins} دقيقة`;
+    } else if (diffHours < 24) {
+        return `منذ ${diffHours} ساعة`;
+    } else if (diffDays < 7) {
+        return `منذ ${diffDays} يوم`;
+    } else {
+        // تنسيق التاريخ للتنبيهات القديمة
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        return notificationTime.toLocaleDateString('ar-SA', options);
+    }
+}
+
+// تحديث عداد التنبيهات
+function updateNotificationCounte
+(Content truncated due to size limit. Use line ranges to read in chunks)

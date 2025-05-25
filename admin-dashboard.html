@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الإدارة - منصة وسّط للوساطة العقارية</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+    <link rel="stylesheet" href="css/broker_features.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* تنسيقات خاصة بلوحة تحكم الإدارة */
+        .admin-dashboard {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .admin-sidebar {
+            width: 280px;
+            background-color: #0a3d62;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .admin-sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .admin-sidebar-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #fff;
+        }
+        
+        .admin-sidebar-header p {
+            font-size: 0.9rem;
+            margin: 5px 0 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .admin-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .admin-menu-item {
+            margin-bottom: 5px;
+        }
+        
+        .admin-menu-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-menu-link:hover, .admin-menu-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        .admin-menu-link i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .admin-menu-category {
+            padding: 15px 20px 5px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 1px;
+        }
+        
+        .admin-content {
+            flex: 1;
+            padding: 30px;
+            background-color: #f5f7fa;
+            overflow-y: auto;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .admin-header h2 {
+            font-size: 1.8rem;
+            color: #0a3d62;
+            margin: 0;
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .admin-button {
+            background-color: #0a3d62;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .admin-button i {
+            margin-left: 5px;
+        }
+        
+        .admin-button:hover {
+            background-color: #0c2461;
+        }
+        
+        .admin-button.secondary {
+            background-color: #fff;
+            color: #0a3d62;
+            border: 1px solid #0a3d62;
+        }
+        
+        .admin-button.secondary:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .admin-button.danger {
+            background-color: #e74c3c;
+        }
+        
+        .admin-button.danger:hover {
+            background-color: #c0392b;
+        }
+        
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .stat-icon.blue {
+            background-color: rgba(10, 61, 98, 0.1);
+            color: #0a3d62;
+        }
+        
+        .stat-icon.green {
+            background-color: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+        
+        .stat-icon.orange {
+            background-color: rgba(230, 126, 34, 0.1);
+            color: #e67e22;
+        }
+        
+        .stat-icon.red {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .admin-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h3 {
+            font-size: 1.3rem;
+            color: #0a3d62;
+            margin: 0;
+        }
+        
+        .section-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .admin-table th, .admin-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .admin-table th {
+            background-color: #f9f9f9;
+            color: #0a3d62;
+            font-weight: 600;
+        }
+        
+        .admin-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .admin-table tr:hover td {
+            background-color: #f5f5f5;
+        }
+        
+        .table-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .action-button {
+            background-color: transparent;
+            border: none;
+            color: #0a3d62;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .action-button:hover {
+            color: #0c2461;
+        }
+        
+        .action-button.edit:hover {
+            color: #2ecc71;
+        }
+        
+        .action-button.delete:hover {
+            color: #e74c3c;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-badge.active {
+            background-color: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+        
+        .status-badge.pending {
+            background-color: rgba(230, 126, 34, 0.1);
+            color: #e67e22;
+        }
+        
+        .status-badge.inactive {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+        
+        .admin-charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .chart-header h3 {
+            font-size: 1.3rem;
+            color: #0a3d62;
+            margin: 0;
+        }
+        
+        .chart-filters {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chart-filter {
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chart-filter:hover, .chart-filter.active {
+            background-color: #0a3d62;
+            color: white;
+        }
+        
+        .chart-placeholder {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            color: #666;
+        }
+        
+        .admin-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #0a3d62;
+            box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.1);
+            outline: none;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .form-select:focus {
+            border-color: #0a3d62;
+            box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.1);
+            outline: none;
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            min-height: 150px;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        .form-textarea:focus {
+            border-color: #0a3d62;
+            box-shadow: 0 0 0 3px rgba(10, 61, 98, 0.1);
+            outline: none;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .notification-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .notification-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .notification-icon.info {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+        }
+        
+        .notification-icon.success {
+            background-color: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+        
+        .notification-icon.warning {
+            background-color: rgba(241, 196, 15, 0.1);
+            color: #f1c40f;
+        }
+        
+        .notification-icon.danger {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-weight: 500;
+            color: #333;
+            margin: 0 0 5px;
+        }
+        
+        .notification-message {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .notification-time {
+            color: #999;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        .notification-actions {
+            margin-right: 15px;
+        }
+        
+        .toggle-sidebar {
+            display: none;
+            background-color: #0a3d62;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 992px) {
+            .admin-sidebar {
+                position: fixed;
+                right: -280px;
+                top: 0;
+                height: 100%;
+                z-index: 1000;
+            }
+            
+            .admin-sidebar.active {
+                right: 0;
+            }
+            
+            .toggle-sidebar {
+                display: block;
+            }
+            
+            .admin-content {
+                width: 100%;
+            }
+            
+            .admin-charts {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .admin-actions {
+                margin-top: 10px;
+            }
+            
+            .admin-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/wasset-logo.png" alt="شعار منصة وسّط">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="broker-dashboard.html">لوحة الوسيط</a></li>
+                    <li><a href="smart-offers.html">العروض الذكية</a></li>
+                    <li><a href="property-request.html">طلب عقاري</a></li>
+                    <li><a href="early-adopter.html">برنامج الانتشار المبكر</a></li>
+                    <li><a href="vision.html">رؤيتنا</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="search-toggle" class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="chatbot-toggle" class="chatbot-icon">
+                    <i class="fas fa-robot"></i>
+                </button>
+                <a href="#" class="login-button">تسجيل الدخول</a>
+            </div>
+        </div>
+    </header>
+
+(Content truncated due to size limit. Use line ranges to read in chunks)

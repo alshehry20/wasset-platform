@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الوسيط - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/broker_features.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- ترويسة الموقع -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">وسّط</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="broker-dashboard.html" class="active">لوحة التحكم</a></li>
+                        <li><a href="properties.html">العقارات</a></li>
+                        <li><a href="smart-offers.html">العروض الذكية</a></li>
+                        <li><a href="early-adopter.html">برنامج الانتشار</a></li>
+                        <li>
+                            <div class="notification-bell has-notifications">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-count">5</span>
+                            </div>
+                            <div class="notification-panel">
+                                <div class="notification-header">
+                                    <h3>الإشعارات</h3>
+                                    <span class="mark-all-read">تعيين الكل كمقروء</span>
+                                </div>
+                                <div class="notification-list">
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>تم إضافة عقار جديد يطابق معاييرك: فيلا في حي النرجس</p>
+                                            <span class="notification-time">منذ 30 دقيقة</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>عميل جديد مهتم بعقارك: شقة في حي الملقا</p>
+                                            <span class="notification-time">منذ ساعتين</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>تحديث في أسعار العقارات: انخفاض بنسبة 5% في حي الياسمين</p>
+                                            <span class="notification-time">منذ 3 ساعات</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notification-footer">
+                                    <a href="notifications.html">عرض جميع الإشعارات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="profile.html" class="btn btn-primary">الملف الشخصي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم لوحة التحكم -->
+    <section class="section">
+        <div class="container">
+            <div class="page-header">
+                <h1>لوحة تحكم الوسيط</h1>
+                <p>مرحباً بك، أحمد محمد! هذه لوحة التحكم الخاصة بك لإدارة نشاطك العقاري بكفاءة عالية</p>
+            </div>
+
+            <div class="dashboard-container">
+                <!-- شريط التنقل الجانبي -->
+                <div class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <img src="images/broker-avatar.jpg" alt="صورة الوسيط">
+                        </div>
+                        <div class="user-info">
+                            <h3>أحمد محمد</h3>
+                            <p>وسيط عقاري مرخص</p>
+                            <div class="user-status verified">
+                                <i class="fas fa-check-circle"></i> موثق
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li class="active">
+                                <a href="#overview"><i class="fas fa-tachometer-alt"></i> نظرة عامة</a>
+                            </li>
+                            <li>
+                                <a href="#properties"><i class="fas fa-home"></i> عقاراتي</a>
+                            </li>
+                            <li>
+                                <a href="#clients"><i class="fas fa-users"></i> العملاء</a>
+                            </li>
+                            <li>
+                                <a href="#requests"><i class="fas fa-clipboard-list"></i> الطلبات</a>
+                            </li>
+                            <li>
+                                <a href="#offers"><i class="fas fa-tags"></i> العروض الذكية</a>
+                            </li>
+                            <li>
+                                <a href="#analytics"><i class="fas fa-chart-bar"></i> التحليلات</a>
+                            </li>
+                            <li>
+                                <a href="#rewards"><i class="fas fa-award"></i> المكافآت</a>
+                            </li>
+                            <li>
+                                <a href="#settings"><i class="fas fa-cog"></i> الإعدادات</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="sidebar-footer">
+                        <div class="broker-level">
+                            <div class="level-info">
+                                <span class="level-label">المستوى:</span>
+                                <span class="level-value">ذهبي</span>
+                            </div>
+                            <div class="level-progress">
+                                <div class="progress-bar" style="width: 75%;"></div>
+                            </div>
+                            <div class="level-target">
+                                <span>75/100 نقطة للمستوى التالي</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- المحتوى الرئيسي للوحة التحكم -->
+                <div class="dashboard-content">
+                    <!-- نظرة عامة -->
+                    <div class="dashboard-section" id="overview">
+                        <h2 class="section-title">نظرة عامة</h2>
+                        
+                        <div class="broker-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-value">24</h3>
+                                    <p class="stat-label">عقار نشط</p>
+                                </div>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 12%
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-value">18</h3>
+                                    <p class="stat-label">عميل نشط</p>
+                                </div>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 8%
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-value">7</h3>
+                                    <p class="stat-label">صفقات مكتملة</p>
+                                </div>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 16%
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-value">120,000</h3>
+                                    <p class="stat-label">إجمالي العمولات (ريال)</p>
+                                </div>
+                                <div class="stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 22%
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-charts">
+                            <div class="chart-container">
+                                <h3 class="chart-title">نشاط العقارات</h3>
+                                <canvas id="properties-chart"></canvas>
+                            </div>
+                            
+                            <div class="chart-container">
+                                <h3 class="chart-title">توزيع العملاء</h3>
+                                <canvas id="clients-chart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-activities">
+                            <h3 class="section-subtitle">النشاطات الأخيرة</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>تمت إضافة عقار جديد: فيلا في حي النرجس</p>
+                                        <span class="activity-time">اليوم، 10:30 ص</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>عميل جديد: سارة العتيبي</p>
+                                        <span class="activity-time">اليوم، 09:15 ص</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-comment"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>تم الرد على استفسار: شقة في حي الملقا</p>
+                                        <span class="activity-time">أمس، 04:45 م</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>تمت صفقة بيع: أرض في حي العليا</p>
+                                        <span class="activity-time">أمس، 02:30 م</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>تم تحديث بيانات عقار: شقة في حي الصحافة</p>
+                                        <span class="activity-time">2025/05/18، 11:20 ص</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-outline btn-block">عرض جميع النشاطات</a>
+                        </div>
+                    </div>
+                    
+                    <!-- العروض الذكية -->
+                    <div class="dashboard-section" id="offers">
+                        <h2 class="section-title">العروض الذكية</h2>
+                        
+                        <div class="smart-offers-preview">
+                            <div class="section-header">
+                                <h3 class="section-subtitle">أحدث العروض المطابقة لمعاييرك</h3>
+                                <a href="smart-offers.html" class="btn btn-primary">إدارة العروض الذكية</a>
+                            </div>
+                            
+                            <div class="section-horizontal">
+                                <div class="offers-grid">
+                                    <div class="offer-card">
+                                        <div class="offer-badge">جديد</div>
+                                        <img src="images/property1.jpg" alt="فيلا في حي النرجس" class="offer-img">
+                                        <div class="offer-body">
+                                            <h4 class="offer-title">فيلا فاخرة في حي النرجس</h4>
+                                            <div class="offer-location
+(Content truncated due to size limit. Use line ranges to read in chunks)

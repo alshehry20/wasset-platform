@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج الانتشار المبكر - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/broker_features.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- ترويسة الموقع -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">وسّط</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="broker-dashboard.html">لوحة التحكم</a></li>
+                        <li><a href="properties.html">العقارات</a></li>
+                        <li><a href="add-property.html">إضافة عقار</a></li>
+                        <li><a href="early-adopter.html" class="active">برنامج الانتشار</a></li>
+                        <li>
+                            <div class="notification-bell">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="notification-panel">
+                                <div class="notification-header">
+                                    <h3>الإشعارات</h3>
+                                    <span class="mark-all-read">تعيين الكل كمقروء</span>
+                                </div>
+                                <div class="notification-list">
+                                    <!-- سيتم تحميل الإشعارات هنا -->
+                                </div>
+                                <div class="notification-footer">
+                                    <a href="notifications.html">عرض جميع الإشعارات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="profile.html" class="btn btn-primary">الملف الشخصي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- برنامج الانتشار المبكر -->
+    <section class="section">
+        <div class="container">
+            <div class="early-adopter-program">
+                <div class="early-adopter-content">
+                    <div class="early-adopter-header">
+                        <h2>انشر وسّط... وكن من الروّاد</h2>
+                        <p>برنامج الانتشار المبكر يمنحك فرصة فريدة للحصول على مكانة متميزة في المنصة وعمولات إضافية من خلال دعوة وسطاء عقاريين آخرين للانضمام إلى منصة "وسّط".</p>
+                    </div>
+
+                    <div class="referral-box">
+                        <h3 class="referral-title">رابط الإحالة الخاص بك</h3>
+                        <div class="referral-link-container">
+                            <input type="text" id="referral-link" class="referral-link" value="https://wasset.sa/register?ref=12345" readonly>
+                            <button id="copy-referral" class="copy-button">نسخ الرابط</button>
+                        </div>
+                        <p class="referral-tips">شارك هذا الرابط مع زملائك الوسطاء العقاريين. عندما ينضمون إلى المنصة من خلال رابطك، ستحصل على مكافآت ونقاط إضافية.</p>
+                    </div>
+
+                    <div class="referral-stats">
+                        <div class="referral-stat">
+                            <div class="referral-stat-value">15</div>
+                            <div class="referral-stat-label">الوسطاء المنضمين</div>
+                        </div>
+                        <div class="referral-stat">
+                            <div class="referral-stat-value">8</div>
+                            <div class="referral-stat-label">الصفقات المكتملة</div>
+                        </div>
+                        <div class="referral-stat">
+                            <div class="referral-stat-value">2,400</div>
+                            <div class="referral-stat-label">العمولات المكتسبة (ريال)</div>
+                        </div>
+                    </div>
+
+                    <div class="referral-chart">
+                        <h3 class="referral-chart-title">إحصائيات برنامج الانتشار المبكر</h3>
+                        <div class="referral-chart-container">
+                            <canvas id="referrals-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="referral-leaderboard">
+                        <h3 class="referral-leaderboard-title">قائمة الوسطاء الرواد</h3>
+                        <ul class="leaderboard-list">
+                            <li class="leaderboard-item">
+                                <div class="leaderboard-rank">1</div>
+                                <div class="leaderboard-broker">
+                                    <div class="leaderboard-broker-name">أحمد السعيد</div>
+                                    <div class="leaderboard-broker-info">الرياض - 32 وسيط</div>
+                                </div>
+                                <div class="leaderboard-value">5,200 ريال</div>
+                            </li>
+                            <li class="leaderboard-item">
+                                <div class="leaderboard-rank">2</div>
+                                <div class="leaderboard-broker">
+                                    <div class="leaderboard-broker-name">شركة الإسكان المتطورة</div>
+                                    <div class="leaderboard-broker-info">جدة - 28 وسيط</div>
+                                </div>
+                                <div class="leaderboard-value">4,800 ريال</div>
+                            </li>
+                            <li class="leaderboard-item">
+                                <div class="leaderboard-rank">3</div>
+                                <div class="leaderboard-broker">
+                                    <div class="leaderboard-broker-name">محمد العتيبي</div>
+                                    <div class="leaderboard-broker-info">الرياض - 15 وسيط</div>
+                                </div>
+                                <div class="leaderboard-value">2,400 ريال</div>
+                            </li>
+                            <li class="leaderboard-item">
+                                <div class="leaderboard-rank">4</div>
+                                <div class="leaderboard-broker">
+                                    <div class="leaderboard-broker-name">سارة الفهد</div>
+                                    <div class="leaderboard-broker-info">الدمام - 12 وسيط</div>
+                                </div>
+                                <div class="leaderboard-value">1,900 ريال</div>
+                            </li>
+                            <li class="leaderboard-item">
+                                <div class="leaderboard-rank">5</div>
+                                <div class="leaderboard-broker">
+                                    <div class="leaderboard-broker-name">خالد المالكي</div>
+                                    <div class="leaderboard-broker-info">مكة - 10 وسطاء</div>
+                                </div>
+                                <div class="leaderboard-value">1,600 ريال</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="benefits-grid mt-40">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 class="benefit-title">الوسيط الرائد</h3>
+                            <p class="benefit-text">احصل على لقب "وسيط رائد" وشارة خاصة "رائد وسّط" تميزك عن غيرك من الوسطاء في المنصة.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h3 class="benefit-title">عمولات إحالة متكررة</h3>
+                            <p class="benefit-text">احصل على عمولة 5% على كل وسيط جديد ينضم عبر رابطك ونسبة 2% من أول صفقة يقوم بها.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <h3 class="benefit-title">مكافآت غير مالية</h3>
+                            <p class="benefit-text">حضور حصري لورش العمل، شهادة تقدير رقمية، أولوية في دعوات الشراكات الاستراتيجية.</p>
+                        </div>
+                    </div>
+
+                    <div class="referral-box mt-40">
+                        <h3 class="referral-title">كيفية الاستفادة من البرنامج</h3>
+                        <ol class="referral-steps">
+                            <li>انسخ رابط الإحالة الخاص بك من الأعلى.</li>
+                            <li>شارك الرابط مع زملائك الوسطاء العقاريين عبر وسائل التواصل الاجتماعي، الواتساب، أو البريد الإلكتروني.</li>
+                            <li>عندما ينقر أحدهم على الرابط ويسجل في المنصة، سيتم تسجيله تلقائياً كوسيط تمت إحالته من قبلك.</li>
+                            <li>تابع إحصائياتك وعمولاتك من خلال هذه الصفحة.</li>
+                            <li>استلم عمولاتك شهرياً في حسابك البنكي المسجل في المنصة.</li>
+                        </ol>
+                    </div>
+
+                    <div class="text-center mt-40">
+                        <a href="#" class="btn btn-lg btn-primary">تحميل دليل برنامج الانتشار المبكر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الموقع -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن المنصة</h3>
+                    <ul>
+                        <li><a href="vision.html">رؤيتنا</a></li>
+                        <li><a href="founder.html">المؤسس</a></li>
+                        <li><a href="#">فريق العمل</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>الأقسام</h3>
+                    <ul>
+                        <li><a href="#">واجهة الوسيط</a></li>
+                        <li><a href="#">واجهة المالك</a></li>
+                        <li><a href="#">واجهة العميل</a></li>
+                        <li><a href="#">الأقسام النوعية</a></li>
+                        <li><a href="#">برنامج الانتشار المبكر</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>المصادر</h3>
+                    <ul>
+                        <li><a href="articles.html">المقالات</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الدليل الإرشادي</a></li>
+                        <li><a href="#">المساعدة</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> لينكد إن</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                        <li><a href="https://wa.me/966534394757"><i class="fab fa-whatsapp"></i> واتساب</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2025 منصة "وسّط" للوسطاء العقاريين المرخصين</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- سكريبت جافاسكريبت -->
+    <script src="js/main.js"></script>
+</body>
+</html>

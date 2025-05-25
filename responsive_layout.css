@@ -1,0 +1,320 @@
+/* تنسيقات تحسين عرض الأقسام بشكل أفقي وملائم لكافة المقاسات */
+
+/* تنسيقات عامة للأقسام */
+.section-horizontal {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f0f0f0;
+}
+
+.section-horizontal::-webkit-scrollbar {
+    height: 8px;
+}
+
+.section-horizontal::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.section-horizontal::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+.section-horizontal .section-title {
+    white-space: normal;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+/* تنسيقات الأقسام النوعية الذكية */
+.special-sections .grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.special-sections .section-card {
+    min-width: 300px;
+    max-width: 300px;
+    white-space: normal;
+    transition: transform 0.3s ease;
+}
+
+.special-sections .section-card:hover {
+    transform: translateY(-10px);
+}
+
+/* تنسيقات الواجهات الثلاث */
+.interfaces-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.interface-content {
+    padding: 0 20px;
+}
+
+.interface-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.interface-feature {
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+/* تنسيقات برنامج الانتشار المبكر */
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.benefit-card {
+    flex: 1 1 300px;
+    max-width: 350px;
+}
+
+/* تنسيقات الشهادات */
+.testimonials .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.testimonial-card {
+    flex: 1 1 300px;
+    max-width: 350px;
+}
+
+/* تنسيقات لوحة تحكم الوسيط */
+.broker-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-card {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+.rewards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.reward-card {
+    flex: 1 1 250px;
+    min-width: 250px;
+}
+
+/* تنسيقات صفحة العروض العقارية الذكية */
+.smart-offers-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-group {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+.offers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.offer-card {
+    flex: 1 1 300px;
+    min-width: 300px;
+    max-width: 350px;
+}
+
+/* تنسيقات للأجهزة المختلفة */
+@media (max-width: 768px) {
+    .special-sections .section-card {
+        min-width: 250px;
+    }
+    
+    .interface-feature {
+        flex: 1 1 100%;
+    }
+    
+    .stat-card {
+        flex: 1 1 100%;
+    }
+    
+    .reward-card {
+        flex: 1 1 100%;
+    }
+    
+    .offer-card {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .special-sections .section-card {
+        min-width: 220px;
+    }
+    
+    .benefit-card {
+        flex: 1 1 100%;
+    }
+    
+    .testimonial-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* تنسيقات أزرار التنقل في الأقسام الأفقية */
+.section-nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.section-nav-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.section-nav-button:hover {
+    background-color: var(--accent-color);
+}
+
+/* تنسيقات إضافية للتوافق مع جميع الأجهزة */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+@media (max-width: 991px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+/* تنسيقات للبحث الشامل في الموقع */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 50px 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(30, 95, 116, 0.1);
+}
+
+.search-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.search-result-item:hover {
+    background-color: #f9f9f9;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-title {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.search-result-description {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.search-result-category {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: rgba(30, 95, 116, 0.1);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}

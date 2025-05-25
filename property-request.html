@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفع طلب عقاري - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/broker_features.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+</head>
+<body>
+    <!-- ترويسة الموقع -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">وسّط</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="broker-dashboard.html">لوحة التحكم</a></li>
+                        <li><a href="properties.html">العقارات</a></li>
+                        <li><a href="smart-offers.html">العروض الذكية</a></li>
+                        <li><a href="early-adopter.html">برنامج الانتشار</a></li>
+                        <li>
+                            <div class="notification-bell has-notifications">
+                                <i class="fas fa-bell"></i>
+                                <span class="notification-count">3</span>
+                            </div>
+                            <div class="notification-panel">
+                                <div class="notification-header">
+                                    <h3>الإشعارات</h3>
+                                    <span class="mark-all-read">تعيين الكل كمقروء</span>
+                                </div>
+                                <div class="notification-list">
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>تم إضافة عقار جديد يطابق معاييرك: فيلا في حي النرجس</p>
+                                            <span class="notification-time">منذ 30 دقيقة</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>عميل جديد مهتم بعقارك: شقة في حي الملقا</p>
+                                            <span class="notification-time">منذ ساعتين</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p>تحديث في أسعار العقارات: انخفاض بنسبة 5% في حي الياسمين</p>
+                                            <span class="notification-time">منذ 3 ساعات</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notification-footer">
+                                    <a href="notifications.html">عرض جميع الإشعارات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="profile.html" class="btn btn-primary">الملف الشخصي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم رفع طلب عقاري -->
+    <section class="section">
+        <div class="container">
+            <div class="page-header">
+                <h1>رفع طلب عقاري جديد</h1>
+                <p>قم بإنشاء طلب عقاري احترافي لعملائك وأرسله مباشرة لبنك العروض والوسطاء المناسبين</p>
+            </div>
+
+            <div class="property-request-container">
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">معلومات العميل</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">تفاصيل العقار</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">خيارات النشر</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">المراجعة والتأكيد</div>
+                    </div>
+                </div>
+
+                <form id="property-request-form" class="multi-step-form">
+                    <!-- الخطوة 1: معلومات العميل -->
+                    <div class="form-step active" data-step="1">
+                        <div class="form-section">
+                            <h3 class="form-section-title">معلومات العميل</h3>
+                            <p class="form-section-description">أدخل معلومات العميل الذي ترغب في رفع طلب عقاري باسمه</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="client-name">اسم العميل <span class="required">*</span></label>
+                                    <input type="text" id="client-name" name="client_name" class="form-control" required>
+                                    <div class="form-hint">أدخل الاسم الكامل للعميل</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-phone">رقم الجوال <span class="required">*</span></label>
+                                    <div class="phone-input-group">
+                                        <span class="phone-prefix">+966</span>
+                                        <input type="tel" id="client-phone" name="client_phone" class="form-control" placeholder="5xxxxxxxx" pattern="[0-9]{9}" required>
+                                    </div>
+                                    <div class="form-hint">أدخل رقم الجوال بدون صفر البداية</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="client-email">البريد الإلكتروني</label>
+                                    <input type="email" id="client-email" name="client_email" class="form-control" placeholder="example@domain.com">
+                                    <div class="form-hint">اختياري: سيتم استخدامه لإرسال تحديثات الطلب</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-type">نوع العميل <span class="required">*</span></label>
+                                    <select id="client-type" name="client_type" class="form-control" required>
+                                        <option value="">اختر نوع العميل</option>
+                                        <option value="individual">فرد</option>
+                                        <option value="company">شركة</option>
+                                        <option value="government">جهة حكومية</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row company-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="company-name">اسم الشركة <span class="required">*</span></label>
+                                    <input type="text" id="company-name" name="company_name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-cr">رقم السجل التجاري <span class="required">*</span></label>
+                                    <input type="text" id="company-cr" name="company_cr" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="client-id-type">نوع الهوية <span class="required">*</span></label>
+                                    <select id="client-id-type" name="client_id_type" class="form-control" required>
+                                        <option value="">اختر نوع الهوية</option>
+                                        <option value="national">هوية وطنية</option>
+                                        <option value="iqama">إقامة</option>
+                                        <option value="passport">جواز سفر</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-id-number">رقم الهوية <span class="required">*</span></label>
+                                    <input type="text" id="client-id-number" name="client_id_number" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label>تفويض العميل <span class="required">*</span></label>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="client_authorization" value="verbal" required>
+                                            <span>تفويض شفهي</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="client_authorization" value="written">
+                                            <span>تفويض خطي</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="client_authorization" value="official">
+                                            <span>تفويض رسمي</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row authorization-upload" style="display: none;">
+                                <div class="form-group full-width">
+                                    <label for="authorization-document">رفع مستند التفويض <span class="required">*</span></label>
+                                    <div class="file-upload-container">
+                                        <input type="file" id="authorization-document" name="authorization_document" class="file-upload-input">
+                                        <div class="file-upload-placeholder">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <span>اسحب الملف هنا أو انقر للاختيار</span>
+                                            <small>الصيغ المدعومة: PDF, JPG, PNG (الحد الأقصى: 5 ميجابايت)</small>
+                                        </div>
+                                        <div class="file-upload-preview" style="display: none;">
+                                            <div class="file-preview-info">
+                                                <i class="fas fa-file-pdf"></i>
+                                                <span class="file-name">اسم الملف</span>
+                                                <span class="file-size">حجم الملف</span>
+                                            </div>
+                                            <button type="button" class="remove-file"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary next-step">التالي <i class="fas fa-arrow-left"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- الخطوة 2: تفاصيل العقار -->
+                    <div class="form-step" data-step="2">
+                        <div class="form-section">
+                            <h3 class="form-section-title">تفاصيل العقار المطلوب</h3>
+                            <p class="form-section-description">حدد مواصفات العقار الذي يبحث عنه العميل</p>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="property-purpose">الغرض <span class="required">*</span></label>
+                                    <select id="property-purpose" name="property_purpose" class="form-control" required>
+                                        <option value="">اختر الغرض</option>
+                                        <option value="buy">شراء</option>
+                                        <option value="rent">استئجار</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="property-type">نوع العقار <span class="required">*</span></label>
+                                    <select id="property-type" name="property_type" class="form-control" required>
+                                        <option value="">اختر نوع العقار</option>
+                                        <option value="land">أرض</option>
+                                        <option value="apartment">شقة</option>
+                                        <option value="villa">فيلا</option>
+                                        <option value="building">عمارة</option>
+                                        <option value="farm">مزرعة</option>
+                                        <option value="chalet">استراحة</option>
+                                        <option value="office">مكتب</option>
+                                        <option value="shop">محل تج
+(Content truncated due to size limit. Use line ranges to read in chunks)

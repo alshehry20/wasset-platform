@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العروض العقارية الذكية - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/broker_features.css">
+    <link rel="stylesheet" href="css/responsive_layout.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- ترويسة الموقع -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">وسّط</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="broker-dashboard.html">لوحة التحكم</a></li>
+                        <li><a href="properties.html">العقارات</a></li>
+                        <li><a href="smart-offers.html" class="active">العروض الذكية</a></li>
+                        <li><a href="early-adopter.html">برنامج الانتشار</a></li>
+                        <li>
+                            <div class="notification-bell has-notifications">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="notification-panel">
+                                <div class="notification-header">
+                                    <h3>الإشعارات</h3>
+                                    <span class="mark-all-read">تعيين الكل كمقروء</span>
+                                </div>
+                                <div class="notification-list">
+                                    <!-- سيتم تحميل الإشعارات هنا -->
+                                </div>
+                                <div class="notification-footer">
+                                    <a href="notifications.html">عرض جميع الإشعارات</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="profile.html" class="btn btn-primary">الملف الشخصي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم العروض العقارية الذكية -->
+    <section class="section">
+        <div class="container">
+            <div class="page-header">
+                <h1>العروض العقارية الذكية</h1>
+                <p>حدد العروض التي ترغب باستلامها وفقاً لمعاييرك الخاصة، ودع الذكاء الاصطناعي يساعدك في العثور على أفضل الفرص</p>
+            </div>
+
+            <div class="smart-offers-container">
+                <div class="smart-offers-tabs">
+                    <div class="tab active" data-target="filter">تصفية العروض</div>
+                    <div class="tab" data-target="requests">الطلبات العقارية</div>
+                    <div class="tab" data-target="ai">توصيات الذكاء الاصطناعي</div>
+                </div>
+
+                <div class="tab-content active" data-id="filter">
+                    <div class="filter-container">
+                        <h3 class="section-subtitle">حدد معايير العروض التي ترغب باستلامها</h3>
+                        
+                        <form id="smart-offers-filter">
+                            <div class="smart-offers-filters">
+                                <div class="filter-group">
+                                    <label>المنطقة</label>
+                                    <select name="region" class="form-control">
+                                        <option value="">اختر المنطقة</option>
+                                        <option value="riyadh">الرياض</option>
+                                        <option value="makkah">مكة المكرمة</option>
+                                        <option value="madinah">المدينة المنورة</option>
+                                        <option value="eastern">المنطقة الشرقية</option>
+                                        <option value="asir">عسير</option>
+                                        <option value="qassim">القصيم</option>
+                                        <option value="tabuk">تبوك</option>
+                                        <option value="hail">حائل</option>
+                                        <option value="jazan">جازان</option>
+                                        <option value="najran">نجران</option>
+                                        <option value="bahah">الباحة</option>
+                                        <option value="jouf">الجوف</option>
+                                        <option value="northern">الحدود الشمالية</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>المدينة</label>
+                                    <select name="city" class="form-control" disabled>
+                                        <option value="">اختر المدينة</option>
+                                        <!-- سيتم تحميل المدن ديناميكياً -->
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>الحي</label>
+                                    <select name="district" class="form-control" disabled>
+                                        <option value="">اختر الحي</option>
+                                        <!-- سيتم تحميل الأحياء ديناميكياً -->
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>نوع العقار</label>
+                                    <select name="property_type" class="form-control">
+                                        <option value="">جميع الأنواع</option>
+                                        <option value="land">أرض</option>
+                                        <option value="apartment">شقة</option>
+                                        <option value="villa">فيلا</option>
+                                        <option value="building">عمارة</option>
+                                        <option value="farm">مزرعة</option>
+                                        <option value="chalet">استراحة</option>
+                                        <option value="office">مكتب</option>
+                                        <option value="shop">محل تجاري</option>
+                                        <option value="warehouse">مستودع</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>التصنيف</label>
+                                    <select name="category" class="form-control">
+                                        <option value="">جميع التصنيفات</option>
+                                        <option value="residential">سكني</option>
+                                        <option value="commercial">تجاري</option>
+                                        <option value="industrial">صناعي</option>
+                                        <option value="agricultural">زراعي</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>الحالة</label>
+                                    <select name="status" class="form-control">
+                                        <option value="">جميع الحالات</option>
+                                        <option value="new">جديد</option>
+                                        <option value="used">مستعمل</option>
+                                        <option value="under_construction">تحت الإنشاء</option>
+                                        <option value="completed">منتهي</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>الحد الأدنى للسعر</label>
+                                    <input type="number" name="min_price" class="form-control" placeholder="الحد الأدنى">
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>الحد الأعلى للسعر</label>
+                                    <input type="number" name="max_price" class="form-control" placeholder="الحد الأعلى">
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>مصدر العرض</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="source_owner" checked>
+                                            <span>من المالك مباشرة</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="source_broker" checked>
+                                            <span>عبر وسطاء آخرين</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="filter-group">
+                                    <label>خيارات إضافية</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="notify_whatsapp">
+                                            <span>تنبيه على الواتساب</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="notify_email">
+                                            <span>تنبيه على البريد الإلكتروني</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="save_filter">
+                                            <span>حفظ هذا الفلتر</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="filter-actions">
+                                <button type="submit" class="btn btn-primary">تطبيق الفلتر</button>
+                                <button type="reset" class="btn btn-outline">إعادة تعيين</button>
+                                <button type="button" class="btn btn-accent save-filter">حفظ كفلتر دائم</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="saved-filters">
+                        <h3 class="section-subtitle">الفلاتر المحفوظة</h3>
+                        <div class="saved-filters-list">
+                            <div class="saved-filter-item">
+                                <div class="saved-filter-info">
+                                    <h4>فلتر #1: فلل في شمال الرياض</h4>
+                                    <p>فلل سكنية في أحياء شمال الرياض بسعر من 2 إلى 5 مليون</p>
+                                </div>
+                                <div class="saved-filter-actions">
+                                    <button class="btn btn-sm btn-primary">تطبيق</button>
+                                    <button class="btn btn-sm btn-outline">تعديل</button>
+                                    <button class="btn btn-sm btn-danger">حذف</button>
+                                </div>
+                            </div>
+                            <div class="saved-filter-item">
+                                <div class="saved-filter-info">
+                                    <h4>فلتر #2: أراضي تجارية</h4>
+                                    <p>أراضي تجارية في المنطقة الشرقية بمساحة أكبر من 1000 متر</p>
+                                </div>
+                                <div class="saved-filter-actions">
+                                    <button class="btn btn-sm btn-primary">تطبيق</button>
+                                    <button class="btn btn-sm btn-outline">تعديل</button>
+                                    <button class="btn btn-sm btn-danger">حذف</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filtered-results">
+                        <div class="results-header">
+                            <h3 class="section-subtitle">نتائج البحث</h3>
+                            <div class="results-count">تم العثور على <span>15</span> عرض</div>
+                            <div class="results-sort">
+                                <label>ترتيب حسب:</label>
+                                <select class="form-control form-control-sm">
+                                    <option value="newest">الأحدث</option>
+                                    <option value="price_asc">السعر (الأقل)</option>
+                                    <option value="price_desc">السعر (الأعلى)</option>
+                                    <option value="area">المساحة</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="offers-grid">
+                            <div class="offer-card">
+                                <div class="offer-badge">جديد</div>
+                                <img src="images/property1.jpg" alt="فيلا في حي النرجس" class="offer-img">
+                                <div class="offer-body">
+                                    <h4 class="offer-title">فيلا فاخرة في حي النرجس</h4>
+                                    <div class="offer-location"><i class="fas fa-map-marker-alt"></i> الرياض، النرجس</div>
+                                    <div class="offer-price">2,500,000 ريال</div>
+                                    <div class="offer-details">
+                                        <div class="offer-detail"><i class="fas fa-ruler-combined"></i> 450 م²</div>
+                                        <div class="offer-detail"><i class="fas fa-bed"></i> 5 غرف</div>
+                                        <div class="offer-detail"><i class="fas fa-bath"></i> 4 حمامات</div>
+                                    </div>
+                                    <div class="offer-source">
+                                        <span class="badge badge-primary">من المالك</span>
+                                    </div>
+                                    <div class="offer-actions">
+                                        <a href="property-details.html?id=1&ref=broker123" class="btn btn-primary btn-block">عرض التفاصيل</a>
+                                        <button class="btn btn-outline btn-block share-offer" data-id="1">مشاركة العرض</button
+(Content truncated due to size limit. Use line ranges to read in chunks)
