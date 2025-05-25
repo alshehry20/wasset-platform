@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة وسّط - المنصة السعودية للوسطاء العقاريين المرخصين</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+        
+        :root {
+            --primary-color: #1e5f74;
+            --secondary-color: #133b5c;
+            --accent-color: #ffa62b;
+            --light-color: #f7f9f9;
+            --dark-color: #1d2d50;
+            --success-color: #2ecc71;
+            --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%);
+            --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f7f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMzUpIj48cmVjdCBpZD0icGF0dGVybi1iZyIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSI+PC9yZWN0PjxjaXJjbGUgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIgY3g9IjIwIiBjeT0iMjAiIHI9IjEiPjwvY2lyY2xlPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-left: 10px;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMzUpIj48cmVjdCBpZD0icGF0dGVybi1iZyIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSI+PC9yZWN0PjxwYXRoIGQ9Ik0tMTAgMTBMMTAgLTEwTTMwIDUwTDUwIDMwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMiI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-accent);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-right: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-accent);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        .interfaces {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .interface-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .interface-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .interface-header {
+            padding: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .interface-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .interface-content {
+            padding: 30px;
+        }
+        
+        .interface-content ul {
+            list-style: none;
+        }
+        
+        .interface-content ul li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-right: 25px;
+        }
+        
+        .interface-content ul li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .special-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .special-section-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .special-section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .special-section-header {
+            padding: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .special-section-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .special-section-content {
+            padding: 20px;
+        }
+        
+        .special-section-content p {
+            margin-bottom: 15px;
+        }
+        
+        .ambassador-program {
+            background-color: #fff8e6;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ambassador-program::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMzUpIj48cmVjdCBpZD0icGF0dGVybi1iZyIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgyNTUsMTY2LDQzLDAuMDMpIj48L3JlY3Q+PGNpcmNsZSBmaWxsPSJyZ2JhKDI1NSwxNjYsNDMsMC4wNSkiIGN4PSIyMCIgY3k9IjIwIiByPSIxIj48L2NpcmNsZT48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjcGF0dGVybikiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiPjwvcmVjdD48L3N2Zz4=');
+            opacity: 0.5;
+        }
+        
+        .ambassador-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ambassador-program h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .ambassador-program h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+        
+        .ambassador-program p {
+            margin-bottom: 15px;
+        }
+        
+        .ambassador-program ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .ambassador-program ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-right: 25px;
+        }
+        
+        .ambassador-program ul li::before {
+            content: '★';
+            position: absolute;
+            right: 0;
+            color: var(--accent-color);
+        }
+        
+        .cta {
+            text-align: center;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMzUpIj48cmVjdCBpZD0icGF0dGVybi1iZyIgd2lkdGg9IjQwMCUiIGhlaWdodD0iNDAwJSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSI+PC9yZWN0PjxwYXRoIGQ9Ik0tMTAgMTBMMTAgLTEwTTMwIDUwTDUwIDMwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMiI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSI+PC9yZWN0Pjwvc3ZnPg==');
+            opacity: 0.2;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .whatsapp-icon {
+            margin-left: 10px;
+            font-size: 1.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+            padding-right: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .btn-secondary {
+                margin-right: 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🏢</span>
+                    وسّط
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#features">مميزات المنصة</a></li>
+                        <li><a href="#interfaces">واجهات المنصة</a></li>
+                        <li><a href="#special-sections">الأقسام النوعية</a></li>
+                        <li><a href="#ambassador">برنامج الرواد</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate">
+                <h1>منصة وسّط</h1>
+                <p>المنصة السعودية للوسطاء العقاريين المرخصين</p>
+                <p>"العقار لا يتحرك إلا عبر الوسيط المعتمد"</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">انضم كوسيط عقاري</a>
+                    <a href="#features" class="btn btn-secondary">تعرف على المنصة</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>رؤية منصة وسّط</h2>
+                <p>بناء سوق عقاري احترافي ومنظّم، لا تُعرض فيه العقارات ولا تُدار الصفقات إلا عبر وسطاء عقاريين مرخصين، مما يحفظ الحقوق، ويعزز الشفافية، ويدعم التنظيم المهني.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card animate delay-1">
+                    <div class="feature-icon">🏛️</div>
+                    <h3>الوسيط هو مركز السوق</h3>
+                    <p>كل عرض، صفقة، تواصل، أو خدمة داخل المنصة تتم فقط عن طريق الوسيط العقاري المرخص، مما يضمن احترافية وموثوقية جميع التعاملات العقارية.</p>
+                </div>
+                
+                <div class="feature-card animate delay-2">
+                    <div class="feature-icon">🔄</div>
+                    <h3>تنظيم العلاقات العقارية</h3>
+                    <p>تنظيم العلاقة بين العميل والمالك والوسيط بشكل يضمن حقوق جميع الأطراف، حيث لا يمكن للعميل أو المالك إدخال عرض أو التواصل إلا من خلال وسيط معتمد.</p>
+                </div>
+                
+                <div class="feature-card animate delay-3">
+                    <div class="feature-icon">📈</div>
+                    <h3>تعزيز قيمة الوسيط</h3>
+                    <p>رفع قيمة الوسيط وزيادة مصادر دخله وخبراته من خلال توفير أدوات ذكية وفرص متنوعة تساعده على تقديم خدمات عقارية متميزة وتحقيق عوائد مالية أفضل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="interfaces" class="section" style="background-color: #f0f5f9;">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>واجهات منصة وسّط</h2>
+                <p>تم تصميم منصة وسّط بثلاث واجهات متكاملة تضمن تنظيم العلاقة بين جميع أطراف السوق العقاري، مع جعل الوسيط العقاري المرخص هو محور جميع التعاملات.</p>
+            </div>
+            
+            <div class="interfaces">
+                <div class="interface-card animate delay-1">
+                    <div class="interface-header">
+                        <h3>واجهة الوسيط العقاري</h3>
+                        <p>الواجهة الرئيسية والمحورية في المنصة</p>
+                    </div>
+                    <div class="interface-content">
+                        <ul>
+                            <li>لوحة تحكم شاملة لإدارة العروض والطلبات</li>
+                            <li>صفحة شخصية مع كود تتبع رسمي</li>
+                            <li>مركز العروض العقارية (رفع وتحليل وتحسين)</li>
+                            <li>استقبال طلبات العملاء والملاك</li>
+                            <li>نظام النقاط والمكافآت حسب النشاط</li>
+                            <li>قسم التقييمات والسمعة الرقمية</li>
+                            <li>مركز التحكيم العقاري</li>
+                            <li>دورات وتأهيل مهني داخل المنصة</li>
+                            <li>مكتبة الأنظمة واللوائح المحدثة</li>
+                            <li>تقارير وتحليلات ذكية بالعروض</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="interface-card animate delay-2">
+                    <div class="interface-header">
+                        <h3>واجهة المالك</h3>
+                        <p>واجهة غير مباشرة - عبر الوسيط</p>
+                    </div>
+                    <div class="interface-content">
+                        <ul>
+                            <li>لا دخول مباشر - يجب تعيين وسيط رسمي</li>
+                            <li>عرض العقار عبر الوسيط المعتمد</li>
+                            <li>الاطلاع على العروض المقدمة</li>
+                            <li>توقيع إلكتروني على عقود الوساطة</li>
+                            <li>الاستفادة من خدمات تجهيز وتأمين العقار</li>
+                            <li>الدخول في تقسيط الأراضي أو شراكات تطوير</li>
+                            <li>متابعة حالة العقار والعروض المقدمة</li>
+                            <li>الاستفادة من خدمات التسويق المتميزة</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="interface-card animate delay-3">
+                    <div class="interface-header">
+                        <h3>واجهة العميل</h3>
+                        <p>واجهة غير مباشرة - عبر الوسيط</p>
+                    </div>
+                    <div class="interface-content">
+                        <ul>
+                            <li>لا يمكنه التعامل المباشر مع العروض</li>
+                            <li>يتم رفع طلبه عبر وسيط موثوق داخل المنصة</li>
+                            <li>الحصول على عقارات مفلترة بناءً على طلبه</li>
+                            <li>عروض تمويل وتأثيث من خلال الوسيط</li>
+                            <li>فرصة الشراء من قسم "العقارات السريعة"</li>
+                            <li>تقييم الوسيط بعد إتمام الصفقة</li>
+                            <li>الاستفادة من خدمات ما بعد البيع</li>
+                            <li>الوصول إلى فرص استثمارية حصرية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="special-sections" class="section">
+        <div class="container">
+            <div class="section-title animate">
+                <h2>الأقسام النوعية الذكية</h2>
+                <p>تتميز منصة وسّط بمجموعة من الأقسام النوعية المبتكرة التي تعمل جميعها من خلال الوسيط العقاري، مما يعزز دوره ويزيد من فرص نجاحه.</p>
+            </div>
+            
+            <div class="special-sections">
+                <div class="special-section-card animate delay-1">
+                    <div class="special-section-header">
+                        <h3>الذكاء الاصطناعي</h3>
+                    </div>
+                    <div class="special-section-content">
+                        <p>يوفر هذا القسم خدمات ذكية للوسطاء تشمل توصيات للعقارات، تقييم جودة العروض، تحليل السوق والفرص، وروبوت دردشة متخصص يساعد الوسيط في الإجابة على استفسارات العملاء بشكل فوري واحترافي.</p>
+                    </div>
+                </div>
+                
+                <div class="special-section-card animate delay-1">
+                    <div class="special-section-header">
+                        <h3>التكتل الشرائي</h3>
+                    </div>
+                    <div class="special-section-content">
+                        <p>يتيح هذا القسم للوسطاء تقديم عروض خاصة لعملائهم من خلال تجميع طلبات متشابهة، مما يوفر خصومات على التجهيزات والتأثيث والخدمات العقارية المختلفة، ويزيد من تنافسية عروض الوسيط.</p>
+                    </div>
+                </div>
+                
+                <div class="special-section-card animate delay-2">
+                    <div class="special-section-header">
+                        <h3>تحكيم الوسطاء العقاريين</h3>
+                    </div>
+                    <div class="special-section-content">
+                        <p>منصة متخصصة لفض النزاعات إلكترونياً بين الوسطاء، من خلال لجان تحكيم رقمية متخصصة، مما يضمن حماية حقوق السعي وتنظيم العلاقة بين الوسطاء في الصفقات المشتركة.</p>
+                    </div>
+                </div>
+                
+                <div class="special-section-card animate delay-2">
+                    <div class="special-section-header">
+                        <h3>العقارات السريعة</h3>
+                    </div>
+                    <div class="special-section-content">
+                        <p>قسم مخصص للعروض المحدودة زمنياً (7 أيام فقط) مع خصومات يومية متناقصة، مما يحفز البيع السريع ويوفر للوسطاء عمولات إضافية على الصفقات التي تتم من خلال هذا القسم.</p>
+                    </div>
+                </div>
+                
+                <div class="special-section-card animate delay-3">
+                    <div class="special-section-header">
+                        <h3>عقاري مقابل مهارة</h3>
+                    </div>
+                    <div class="special-section-content">
+                        <p>يتيح هذا القسم للوسطاء ربط أصحاب المهارات (مصممين، مهندسين، مسوقين) بأصحاب العقارات، حيث يمكن تشطيب أو تسويق العقارات مقابل حصة من الملكية، مع توثيق العقود بشكل رسمي.</p>
+                    </div>
+                </div>
+                
+                <div class="special-section-card animate delay-3">
+                    <div class="special-section-header">
+                        <h3>رادار السوق العقاري</h3>
+                    </div>
+                    <div class="special-section-content">
+                        <p>نظام ذكي يرصد تغيرات السوق ويرسل تنبيهات للوسطاء حول العقارات التي انخفضت أسعارها أو الفرص النادرة، مما يساعدهم على تقديم عروض قيمة لعملائهم واقتناص الفرص قبل منافسيهم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="ambassador" class="section" style="background-color: #fff8e6;">
+        <div class="container">
+            <div class="ambassador-program animate">
+                <div class="ambassador-content">
+                    <h3>انشر وسّط... وكن من الروّاد</h3>
+                    <p>برنامج الانتشار المبكر للوسطاء العقاريين</p>
+                    
+                    <h4>الهدف من البرنامج</h4>
+                    <p>تحفيز الوسطاء العقاريين المرخصين على نشر المنصة في مرحلة الإطلاق وكسب مزايا وحقوق حصرية لا يحصل عليها من ينضم لاحقاً.</p>
+                    
+                    <h4>مميزات الوسيط الرائد (Ambassador Broker)</h4>
+                    <ul>
+                        <li>الحصول على لقب "وسيط رائد" مع شارة خاصة "رائد وسّط" تميز حسابك</li>
+                        <li>أولوية الظهور في نتائج البحث داخل المنصة</li>
+                        <li>عمولات إحالة متكررة على كل وسيط جديد ينضم عبر رابطك</li>
+                        <li>نسبة من أول صفقة تتم عبر كل وسيط أحلته للمنصة</li>
+                        <li>حضور حصري لورش العمل مع شركاء المنصة</li>
+                        <li>شهادة تقدير رقمية باسم "شريك الإطلاق"</li>
+                        <li>أولوية في دعوات الشراكات الجديدة مستقبلاً</li>
+                    </ul>
+                    
+                    <h4>آلية النشر الذكية</h4>
+                    <p>يحصل كل وسيط على رابط إحالة خاص به يمكنه مشاركته في مجموعات الواتساب، تويتر، إنستغرام، وتيليجرام. كما تتوفر لوحة متقدمة تتابع عدد الوسطاء المنضمين من خلاله، الصفقات المرتبطة به، ومكافآته المجمعة.</p>
+                    
+                    <h4>فترة الإطلاق الذهبي</h4>
+                    <p>هذا البرنامج متاح لمدة 90 يوم فقط من الإطلاق الرسمي، بعدها تُغلق امتيازات "الرائد" ويبقى من شارك فيها له ميزة دائمة داخل النظام.</p>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#contact" class="btn btn-primary">كن من أوائل الوسطاء الرواد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="cta">
+        <div class="container">
+            <div class="cta-content animate">
+                <h2>انضم إلى منصة وسّط اليوم</h2>
+                <p>كن جزءاً من مستقبل الوساطة العقارية في المملكة العربية السعودية</p>
+                <a href="https://wa.me/966534394757" class="whatsapp-btn">
+                    <span class="whatsapp-icon">📱</span>
+                    تواصل معنا عبر الواتساب
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن وسّط</h3>
+                    <ul>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">رؤيتنا</a></li>
+                        <li><a href="#">فريق العمل</a></li>
+                        <li><a href="#">الشركاء الاستراتيجيون</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#">خدمات الوسطاء</a></li>
+                        <li><a href="#">خدمات الملاك</a></li>
+                        <li><a href="#">خدمات العملاء</a></li>
+                        <li><a href="#">الشراكات الاستراتيجية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>الدعم</h3>
+                    <ul>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الدعم الفني</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li><a href="https://wa.me/966534394757">واتساب: 966534394757+</a></li>
+                        <li><a href="#">البريد الإلكتروني: info@wasset.sa</a></li>
+                        <li><a href="#">العنوان: الرياض، المملكة العربية السعودية</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link">𝕏</a>
+                    <a href="#" class="social-link">f</a>
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">📷</a>
+                </div>
+                <p class="copyright">© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            function checkIfInView() {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Set initial state for animations
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // Check if elements are in view on load and scroll
+            window.addEventListener('scroll', checkIfInView);
+            window.addEventListener('resize', checkIfInView);
+            window.addEventListener('load', checkIfInView);
+            
+            // Trigger initial check
+            checkIfInView();
+        });
+    </script>
+</body>
+</html>

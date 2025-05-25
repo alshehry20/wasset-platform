@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة عرض أو طلب عقاري - منصة وسّط</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .property-form-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            color: #1a5276;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #2c3e50;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .form-radio-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .form-radio {
+            margin-left: 8px;
+        }
+        
+        .form-submit {
+            background-color: #1a5276;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 30px auto 0;
+            width: 200px;
+        }
+        
+        .form-submit:hover {
+            background-color: #154360;
+        }
+        
+        .form-note {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        .image-preview-container {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+        
+        .image-upload-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        .image-upload-container:hover {
+            border-color: #3498db;
+        }
+        
+        .image-upload-icon {
+            font-size: 2rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .image-upload-text {
+            color: #7f8c8d;
+            text-align: center;
+        }
+        
+        .image-upload-input {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">🏢 وسّط</a>
+        </div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="ai-assistant.html">المساعد الذكي</a>
+            <a href="articles.html">المقالات</a>
+            <a href="vision.html">رؤية المملكة</a>
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
+        <div class="user-menu">
+            <span class="user-name">وسيط عقاري</span>
+            <div class="dropdown-content">
+                <a href="profile.html">الملف الشخصي</a>
+                <a href="login.html">تسجيل الخروج</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="property-form-container">
+        <h1 class="form-title">إضافة عرض أو طلب عقاري</h1>
+        
+        <form id="propertyForm">
+            <div class="form-group">
+                <label class="form-label">نوع الإعلان</label>
+                <div class="form-radio-group">
+                    <label class="form-radio-label">
+                        <input type="radio" name="listingType" value="offer" class="form-radio" checked>
+                        عرض عقاري
+                    </label>
+                    <label class="form-radio-label">
+                        <input type="radio" name="listingType" value="request" class="form-radio">
+                        طلب عقاري
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label class="form-label">نوع العقار</label>
+                        <select class="form-select" name="propertyType" required>
+                            <option value="">اختر نوع العقار</option>
+                            <option value="apartment">شقة</option>
+                            <option value="villa">فيلا</option>
+                            <option value="land">أرض</option>
+                            <option value="commercial">عقار تجاري</option>
+                            <option value="farm">مزرعة</option>
+                            <option value="chalet">استراحة</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-col">
+                    <div class="form-group">
+                        <label class="form-label">المدينة</label>
+                        <select class="form-select" name="city" required>
+                            <option value="">اختر المدينة</option>
+                            <option value="riyadh">الرياض</option>
+                            <option value="jeddah">جدة</option>
+                            <option value="dammam">الدمام</option>
+                            <option value="makkah">مكة المكرمة</option>
+                            <option value="madinah">المدينة المنورة</option>
+                            <option value="khobar">الخبر</option>
+                            <option value="taif">الطائف</option>
+                            <option value="abha">أبها</option>
+                            <option value="tabuk">تبوك</option>
+                            <option value="buraidah">بريدة</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label class="form-label">الحي</label>
+                        <input type="text" class="form-input" name="district" placeholder="أدخل اسم الحي">
+                    </div>
+                </div>
+                
+                <div class="form-col">
+                    <div class="form-group">
+                        <label class="form-label">المساحة (متر مربع)</label>
+                        <input type="number" class="form-input" name="area" placeholder="أدخل المساحة" required>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label class="form-label">السعر (ريال سعودي)</label>
+                        <input type="number" class="form-input" name="price" placeholder="أدخل السعر">
+                        <p class="form-note">اختياري للطلبات العقارية</p>
+                    </div>
+                </div>
+                
+                <div class="form-col">
+                    <div class="form-group">
+                        <label class="form-label">رقم الصك</label>
+                        <input type="text" class="form-input" name="deedNumber" placeholder="أدخل رقم الصك">
+                        <p class="form-note">اختياري</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">وصف العقار</label>
+                <textarea class="form-textarea" name="description" placeholder="أدخل وصفاً تفصيلياً للعقار" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">صور العقار</label>
+                <div class="image-upload-container" id="imageUploadContainer">
+                    <div class="image-upload-icon">📷</div>
+                    <p class="image-upload-text">انقر لإضافة صور أو اسحب الصور وأفلتها هنا</p>
+                    <p class="image-upload-text">يمكنك إضافة حتى 10 صور</p>
+                    <input type="file" id="imageUpload" class="image-upload-input" multiple accept="image/*">
+                </div>
+                <div class="image-preview-container" id="imagePreviewContainer"></div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">معلومات إضافية</label>
+                <textarea class="form-textarea" name="additionalInfo" placeholder="أي معلومات إضافية ترغب في إضافتها"></textarea>
+            </div>
+            
+            <button type="submit" class="form-submit">نشر الإعلان</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        // إضافة وظيفة رفع الصور ومعاينتها
+        const imageUploadContainer = document.getElementById('imageUploadContainer');
+        const imageUpload = document.getElementById('imageUpload');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+        
+        // إضافة مستمع لحدث النقر على منطقة رفع الصور
+        imageUploadContainer.addEventListener('click', () => {
+            imageUpload.click();
+        });
+        
+        // إضافة مستمع لحدث السحب والإفلات
+        imageUploadContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            imageUploadContainer.style.borderColor = '#3498db';
+        });
+        
+        imageUploadContainer.addEventListener('dragleave', () => {
+            imageUploadContainer.style.borderColor = '#ddd';
+        });
+        
+        imageUploadContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            imageUploadContainer.style.borderColor = '#ddd';
+            
+            if (e.dataTransfer.files.length > 0) {
+                handleFiles(e.dataTransfer.files);
+            }
+        });
+        
+        // إضافة مستمع لحدث تغيير الملفات
+        imageUpload.addEventListener('change', () => {
+            handleFiles(imageUpload.files);
+        });
+        
+        // معالجة الملفات المرفوعة
+        function handleFiles(files) {
+            // التحقق من عدد الصور
+            const currentImages = document.querySelectorAll('.image-preview').length;
+            const remainingSlots = 10 - currentImages;
+            
+            if (remainingSlots <= 0) {
+                alert('لقد وصلت للحد الأقصى من الصور (10 صور)');
+                return;
+            }
+            
+            // تحديد عدد الملفات التي سيتم معالجتها
+            const filesToProcess = Math.min(files.length, remainingSlots);
+            
+            for (let i = 0; i < filesToProcess; i++) {
+                const file = files[i];
+                
+                // التحقق من نوع الملف
+                if (!file.type.startsWith('image/')) {
+                    continue;
+                }
+                
+                // إنشاء عنصر معاينة الصورة
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'image-preview';
+                    img.title = file.name;
+                    
+                    // إضافة زر حذف الصورة
+                    const container = document.createElement('div');
+                    container.style.position = 'relative';
+                    container.appendChild(img);
+                    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerHTML = '×';
+                    deleteButton.style.position = 'absolute';
+                    deleteButton.style.top = '5px';
+                    deleteButton.style.right = '5px';
+                    deleteButton.style.background = 'rgba(0, 0, 0, 0.5)';
+                    deleteButton.style.color = 'white';
+                    deleteButton.style.border = 'none';
+                    deleteButton.style.borderRadius = '50%';
+                    deleteButton.style.width = '20px';
+                    deleteButton.style.height = '20px';
+                    deleteButton.style.cursor = 'pointer';
+                    deleteButton.style.display = 'flex';
+                    deleteButton.style.justifyContent = 'center';
+                    deleteButton.style.alignItems = 'center';
+                    deleteButton.style.fontSize = '16px';
+                    deleteButton.style.padding = '0';
+                    
+                    deleteButton.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        container.remove();
+                    });
+                    
+                    container.appendChild(deleteButton);
+                    imagePreviewContainer.appendChild(container);
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // إضافة مستمع لحدث إرسال النموذج
+        document.getElementById('propertyForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // جمع بيانات النموذج
+            const formData = new FormData(e.target);
+            const formDataObj = {};
+            
+            for (const [key, value] of formData.entries()) {
+                formDataObj[key] = value;
+            }
+            
+            // إضافة الصور إلى البيانات
+            const images = [];
+            document.querySelectorAll('.image-preview').forEach(img => {
+                images.push(img.src);
+            });
+            
+            formDataObj.images = images;
+            
+            // إرسال البيانات إلى الخادم (محاكاة)
+            console.log('بيانات العقار:', formDataObj);
+            
+            // عرض رسالة نجاح
+            alert('تم نشر الإعلان بنجاح!');
+            
+            // إعادة توجيه المستخدم إلى الصفحة الرئيسية
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

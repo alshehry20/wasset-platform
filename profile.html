@@ -630,435 +630,4 @@
             border: 5px solid rgba(30, 95, 116, 0.3);
             border-radius: 50%;
             border-top-color: var(--primary-color);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-    </style>
-</head>
-<body class="page-loading">
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
-
-    <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">🏢 وسّط</a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="ai-assistant.html">المساعد الذكي</a></li>
-                    <li><a href="articles.html">المقالات</a></li>
-                    <li><a href="vision.html">رؤية المملكة</a></li>
-                    <li><a href="#">تواصل معنا</a></li>
-                </ul>
-            </nav>
-            <div class="user-menu">
-                <div class="user-avatar" id="user-avatar">و</div>
-                <div class="user-info">
-                    <div class="user-name" id="user-name">وسيط عقاري</div>
-                    <div class="user-role" id="user-role">وسيط مرخص</div>
-                </div>
-                <div class="dropdown">
-                    <i class="fas fa-chevron-down" style="color: white; margin-right: 10px; cursor: pointer;"></i>
-                    <div class="dropdown-content">
-                        <a href="profile.html" class="active"><i class="fas fa-user"></i> الملف الشخصي</a>
-                        <a href="#"><i class="fas fa-cog"></i> الإعدادات</a>
-                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="profile-container animate-fade-in">
-            <div class="profile-sidebar">
-                <div class="profile-avatar" id="profile-avatar">و</div>
-                <h2 class="profile-name" id="profile-name">وسيط عقاري</h2>
-                <p class="profile-type" id="profile-type">وسيط فرد</p>
-                
-                <div class="profile-stats">
-                    <div class="stat-item">
-                        <div class="stat-value" id="offers-count">0</div>
-                        <div class="stat-label">العروض</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="requests-count">0</div>
-                        <div class="stat-label">الطلبات</div>
-                    </div>
-                </div>
-                
-                <div class="profile-actions">
-                    <a href="#" class="btn">إضافة عرض جديد</a>
-                    <a href="#" class="btn btn-outline">إضافة طلب جديد</a>
-                </div>
-            </div>
-            
-            <div class="profile-content">
-                <div class="profile-tabs">
-                    <div class="profile-tab active" data-tab="info">المعلومات الشخصية</div>
-                    <div class="profile-tab" data-tab="properties">العقارات</div>
-                </div>
-                
-                <div class="profile-tab-content active" id="info-tab">
-                    <div class="profile-section">
-                        <h3 class="profile-section-title">معلومات الرخصة</h3>
-                        <div class="profile-license" id="license-container">
-                            <!-- سيتم إضافة معلومات الرخصة ديناميكياً -->
-                        </div>
-                    </div>
-                    
-                    <div class="profile-section">
-                        <h3 class="profile-section-title">المعلومات الشخصية</h3>
-                        <ul class="profile-info-list" id="personal-info">
-                            <!-- سيتم إضافة المعلومات الشخصية ديناميكياً -->
-                        </ul>
-                    </div>
-                    
-                    <div class="profile-section">
-                        <h3 class="profile-section-title">معلومات الاتصال</h3>
-                        <ul class="profile-info-list" id="contact-info">
-                            <!-- سيتم إضافة معلومات الاتصال ديناميكياً -->
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="profile-tab-content" id="properties-tab">
-                    <div class="profile-section">
-                        <h3 class="profile-section-title">العروض العقارية</h3>
-                        <div class="empty-state" id="offers-empty">
-                            <div class="empty-state-icon">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <div class="empty-state-text">لا توجد عروض عقارية حالياً</div>
-                            <a href="#" class="btn">إضافة عرض جديد</a>
-                        </div>
-                        <div class="property-list" id="offers-list" style="display: none;">
-                            <!-- سيتم إضافة العروض العقارية ديناميكياً -->
-                        </div>
-                    </div>
-                    
-                    <div class="profile-section">
-                        <h3 class="profile-section-title">الطلبات العقارية</h3>
-                        <div class="empty-state" id="requests-empty">
-                            <div class="empty-state-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <div class="empty-state-text">لا توجد طلبات عقارية حالياً</div>
-                            <a href="#" class="btn">إضافة طلب جديد</a>
-                        </div>
-                        <div class="property-list" id="requests-list" style="display: none;">
-                            <!-- سيتم إضافة الطلبات العقارية ديناميكياً -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
-    </footer>
-
-    <script src="performance_optimizations.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // إزالة مؤشر التحميل
-            const loadingOverlay = document.querySelector('.loading-overlay');
-            setTimeout(() => {
-                loadingOverlay.classList.add('hidden');
-                document.body.classList.remove('page-loading');
-            }, 500);
-
-            // التحقق من حالة تسجيل الدخول
-            const isLoggedIn = localStorage.getItem('wasset_logged_in') === 'true';
-            if (!isLoggedIn) {
-                window.location.href = 'login.html';
-                return;
-            }
-
-            // الحصول على بيانات الوسيط من التخزين المحلي
-            const brokerData = JSON.parse(localStorage.getItem('wasset_broker_data') || '{}');
-            const userPhone = localStorage.getItem('wasset_phone');
-            const userType = localStorage.getItem('wasset_user_type');
-
-            // تحديث معلومات الوسيط في الصفحة
-            updateBrokerInfo(brokerData, userPhone, userType);
-
-            // تسجيل الخروج
-            const logoutBtn = document.getElementById('logout-btn');
-            logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('wasset_logged_in');
-                localStorage.removeItem('wasset_user_type');
-                localStorage.removeItem('wasset_phone');
-                localStorage.removeItem('wasset_broker_data');
-                window.location.href = 'login.html';
-            });
-
-            // التبديل بين علامات التبويب
-            const tabs = document.querySelectorAll('.profile-tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // إزالة الفئة النشطة من جميع علامات التبويب
-                    tabs.forEach(t => t.classList.remove('active'));
-                    // إضافة الفئة النشطة للعلامة المحددة
-                    this.classList.add('active');
-                    
-                    // إخفاء جميع محتويات التبويب
-                    const tabContents = document.querySelectorAll('.profile-tab-content');
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // إظهار المحتوى المطلوب
-                    const targetTab = this.getAttribute('data-tab');
-                    document.getElementById(`${targetTab}-tab`).classList.add('active');
-                });
-            });
-        });
-
-        // تحديث معلومات الوسيط في الصفحة
-        function updateBrokerInfo(brokerData, userPhone, userType) {
-            // تحديث الاسم والصورة الرمزية
-            const brokerName = brokerData['اسم الوسيط'] || userPhone;
-            const brokerType = brokerData['نوع الوسيط'] || userType;
-            
-            // تحديث معلومات الرأس
-            document.getElementById('user-name').textContent = brokerName;
-            document.getElementById('user-role').textContent = brokerType;
-            
-            // تحديث الصورة الرمزية في الرأس
-            const userAvatar = document.getElementById('user-avatar');
-            if (brokerName) {
-                userAvatar.textContent = brokerName.charAt(0);
-            } else {
-                userAvatar.textContent = userPhone.charAt(userPhone.length - 1);
-            }
-            
-            // تحديث معلومات الشريط الجانبي
-            document.getElementById('profile-name').textContent = brokerName;
-            document.getElementById('profile-type').textContent = brokerType;
-            
-            // تحديث الصورة الرمزية في الشريط الجانبي
-            const profileAvatar = document.getElementById('profile-avatar');
-            if (brokerName) {
-                profileAvatar.textContent = brokerName.charAt(0);
-            } else {
-                profileAvatar.textContent = userPhone.charAt(userPhone.length - 1);
-            }
-            
-            // تحديث معلومات الرخصة
-            updateLicenseInfo(brokerData);
-            
-            // تحديث المعلومات الشخصية
-            updatePersonalInfo(brokerData);
-            
-            // تحديث معلومات الاتصال
-            updateContactInfo(brokerData, userPhone);
-        }
-
-        // تحديث معلومات الرخصة
-        function updateLicenseInfo(brokerData) {
-            const licenseContainer = document.getElementById('license-container');
-            licenseContainer.innerHTML = '';
-            
-            // التحقق من وجود معلومات الرخصة
-            if (brokerData['نوع الرخصة1'] && brokerData['رقم الرخصة1']) {
-                const licenseType = brokerData['نوع الرخصة1'];
-                const licenseNumber = brokerData['رقم الرخصة1'];
-                const licenseStatus = brokerData['حالة الرخصة1'] || 'سارية';
-                
-                const licenseHTML = `
-                    <div class="profile-license-header">
-                        <div class="profile-license-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="profile-license-title">${licenseType}</div>
-                    </div>
-                    <div class="profile-license-details">
-                        <div class="profile-license-item">
-                            <div class="profile-license-label">رقم الرخصة</div>
-                            <div class="profile-license-value">${licenseNumber}</div>
-                        </div>
-                        <div class="profile-license-item">
-                            <div class="profile-license-label">حالة الرخصة</div>
-                            <div class="profile-license-value">
-                                <span class="profile-license-status">${licenseStatus}</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                licenseContainer.innerHTML = licenseHTML;
-            } else {
-                licenseContainer.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-state-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="empty-state-text">لا توجد معلومات رخصة متاحة</div>
-                    </div>
-                `;
-            }
-        }
-
-        // تحديث المعلومات الشخصية
-        function updatePersonalInfo(brokerData) {
-            const personalInfoContainer = document.getElementById('personal-info');
-            personalInfoContainer.innerHTML = '';
-            
-            // إضافة اسم الوسيط
-            if (brokerData['اسم الوسيط']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">الاسم</div>
-                        <div class="profile-info-value">${brokerData['اسم الوسيط']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة نوع الوسيط
-            if (brokerData['نوع الوسيط']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">نوع الوسيط</div>
-                        <div class="profile-info-value">${brokerData['نوع الوسيط']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة الرقم الموحد للمنشأة إذا كان متاحاً
-            if (brokerData['الرقم الموحد للمنشـأة']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">الرقم الموحد للمنشأة</div>
-                        <div class="profile-info-value">${brokerData['الرقم الموحد للمنشـأة']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة المنطقة
-            if (brokerData['المنطقة']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">المنطقة</div>
-                        <div class="profile-info-value highlight">${brokerData['المنطقة']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة المدينة
-            if (brokerData['المدينة']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">المدينة</div>
-                        <div class="profile-info-value highlight">${brokerData['المدينة']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة الحي
-            if (brokerData['حي']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">الحي</div>
-                        <div class="profile-info-value">${brokerData['حي']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة الشارع
-            if (brokerData['شارع']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">الشارع</div>
-                        <div class="profile-info-value">${brokerData['شارع']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة الرمز البريدي
-            if (brokerData['الرمز البريدي']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">الرمز البريدي</div>
-                        <div class="profile-info-value">${brokerData['الرمز البريدي']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة رقم المبنى
-            if (brokerData['رقم المبنى']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">رقم المبنى</div>
-                        <div class="profile-info-value">${brokerData['رقم المبنى']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة الرمز الإضافي
-            if (brokerData['الرمز الإضافي']) {
-                personalInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">الرمز الإضافي</div>
-                        <div class="profile-info-value">${brokerData['الرمز الإضافي']}</div>
-                    </li>
-                `;
-            }
-            
-            // إذا لم تكن هناك معلومات شخصية
-            if (personalInfoContainer.innerHTML === '') {
-                personalInfoContainer.innerHTML = `
-                    <li class="profile-info-item">
-                        <div class="profile-info-value">لا توجد معلومات شخصية متاحة</div>
-                    </li>
-                `;
-            }
-        }
-
-        // تحديث معلومات الاتصال
-        function updateContactInfo(brokerData, userPhone) {
-            const contactInfoContainer = document.getElementById('contact-info');
-            contactInfoContainer.innerHTML = '';
-            
-            // إضافة رقم الجوال
-            contactInfoContainer.innerHTML += `
-                <li class="profile-info-item">
-                    <div class="profile-info-label">رقم الجوال</div>
-                    <div class="profile-info-value highlight">${brokerData['رقم الجوال'] || userPhone}</div>
-                </li>
-            `;
-            
-            // إضافة البريد الإلكتروني
-            if (brokerData['البريد الإلكتروني']) {
-                contactInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">البريد الإلكتروني</div>
-                        <div class="profile-info-value">${brokerData['البريد الإلكتروني']}</div>
-                    </li>
-                `;
-            }
-            
-            // إضافة رابط الملف الشخصي
-            if (brokerData['link']) {
-                contactInfoContainer.innerHTML += `
-                    <li class="profile-info-item">
-                        <div class="profile-info-label">رابط الملف الشخصي</div>
-                        <div class="profile-info-value">
-                            <a href="${brokerData['link']}" target="_blank">${brokerData['link']}</a>
-                        </div>
-                    </li>
-                `;
-            }
-        }
-    </script>
-</body>
-</html>
+(Content truncated due to size limit. Use line ranges to read in chunks)

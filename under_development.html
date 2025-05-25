@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#1e5f74">
+    <meta name="theme-color" content="#1e5f74">
+    <title>قيد التطوير - منصة وسّط للوسطاء العقاريين المرخصين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap">
+    <link rel="stylesheet" href="responsive_fixes.css">
+    <style>
+        :root {
+            --primary-color: #1e5f74;
+            --secondary-color: #133b5c;
+            --accent-color: #ffa62b;
+            --light-color: #f7f9f9;
+            --dark-color: #1d2d50;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --gradient-primary: linear-gradient(135deg, #1e5f74 0%, #133b5c 100%);
+            --gradient-accent: linear-gradient(135deg, #ffa62b 0%, #ff8c00 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .user-info {
+            margin-left: 10px;
+        }
+
+        .user-name {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .user-role {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-content a i {
+            margin-left: 10px;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .under-development {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .under-development-icon {
+            font-size: 80px;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+        }
+
+        .under-development h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .under-development p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-info .contact-item i {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-left: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-info .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* تحسينات للأجهزة المحمولة */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .under-development h1 {
+                font-size: 28px;
+            }
+
+            .under-development p {
+                font-size: 16px;
+            }
+        }
+
+        /* تأثيرات حركية */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* تحسينات للتحميل */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(30, 95, 116, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body class="page-loading">
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">🏢 وسّط</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="ai-assistant.html">المساعد الذكي</a></li>
+                    <li><a href="articles.html">المقالات</a></li>
+                    <li><a href="vision.html">رؤية المملكة</a></li>
+                    <li><a href="#">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="user-menu">
+                <div class="user-avatar" id="user-avatar">و</div>
+                <div class="user-info">
+                    <div class="user-name" id="user-name">وسيط عقاري</div>
+                    <div class="user-role">وسيط مرخص</div>
+                </div>
+                <div class="dropdown">
+                    <i class="fas fa-chevron-down" style="color: white; margin-right: 10px; cursor: pointer;"></i>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-user"></i> الملف الشخصي</a>
+                        <a href="#"><i class="fas fa-cog"></i> الإعدادات</a>
+                        <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="under-development animate-fade-in">
+            <div class="under-development-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+            <h1>هذه الصفحة قيد التطوير</h1>
+            <p>نعمل حالياً على تطوير هذه الصفحة لتوفير تجربة مستخدم متميزة. يرجى العودة قريباً للاطلاع على التحديثات الجديدة.</p>
+            <a href="index.html" class="btn">العودة للصفحة الرئيسية</a>
+            
+            <div class="contact-info">
+                <h3>هل تحتاج إلى مساعدة؟</h3>
+                <p>يمكنك التواصل معنا مباشرة من خلال:</p>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/966534394757" target="_blank">+966 53 439 4757</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@wasset.sa">info@wasset.sa</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 منصة وسّط - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script src="performance_optimizations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إزالة مؤشر التحميل
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+                document.body.classList.remove('page-loading');
+            }, 500);
+
+            // التحقق من حالة تسجيل الدخول
+            const isLoggedIn = localStorage.getItem('wasset_logged_in') === 'true';
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // عرض اسم المستخدم
+            const userPhone = localStorage.getItem('wasset_phone');
+            const userName = document.getElementById('user-name');
+            const userAvatar = document.getElementById('user-avatar');
+            
+            if (userPhone) {
+                userName.textContent = userPhone;
+                userAvatar.textContent = userPhone.charAt(userPhone.length - 1);
+            }
+
+            // تسجيل الخروج
+            const logoutBtn = document.getElementById('logout-btn');
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('wasset_logged_in');
+                localStorage.removeItem('wasset_user_type');
+                localStorage.removeItem('wasset_phone');
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html>
